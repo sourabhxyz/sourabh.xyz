@@ -15,6 +15,7 @@ function Circle(props) {
       w="40px"
       bg={props.color}
       borderRadius="full"
+      bgGradient={`radial-gradient(#FFE3E2 10%, ${props.color} 50%, ${props.color})`}
       boxShadow={`0px 0px 10px 10px ${props.color}`}
       // initial={`0px 0px 10px 10px ${props.color}`}
       animate={{ scale: 4 }}
