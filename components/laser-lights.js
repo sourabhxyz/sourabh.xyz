@@ -11,13 +11,13 @@ const MotionBox = motion(Box);
 function Circle(props) {
   return (
     <MotionBox
-      h="50px"
-      w="50px"
+      h="40px"
+      w="40px"
       bg={props.color}
       borderRadius="full"
-      // boxShadow={`0px 0px 10px 10px ${props.color}`}
-      initial={`0px 0px 10px 10px ${props.color}`}
-      animate={{ boxShadow: `0px 0px 100px 100px ${props.color}` }}
+      boxShadow={`0px 0px 10px 10px ${props.color}`}
+      // initial={`0px 0px 10px 10px ${props.color}`}
+      animate={{ scale: 4 }}
       transition={{
         repeat: '1',
         repeatType: 'reverse',
@@ -27,6 +27,26 @@ function Circle(props) {
     ></MotionBox>
   );
 }
+
+// function Circle(props) {
+//   return (
+//     <MotionBox
+//       h="50px"
+//       w="50px"
+//       bg={props.color}
+//       borderRadius="full"
+//       // boxShadow={`0px 0px 10px 10px ${props.color}`}
+//       initial={`0px 0px 10px 10px ${props.color}`}
+//       animate={{ boxShadow: `0px 0px 100px 100px ${props.color}` }}
+//       transition={{
+//         repeat: '1',
+//         repeatType: 'reverse',
+//         delay: `${props.delay}`,
+//         duration: '0.33',
+//       }}
+//     ></MotionBox>
+//   );
+// }
 
 // 1. initial to animate.
 // 2. transition to control this transition like:

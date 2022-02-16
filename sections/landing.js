@@ -2,11 +2,19 @@ import { Container, Text } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 
 const MotionText = motion(Text);
+const MotionContainer = motion(Container);
 
 export default function Landing() {
   return (
-    <Container maxW="container.xl" bg="black" h="100vh">
+    <MotionContainer
+      maxW="container.xl"
+      bg="black"
+      h="100vh"
+      initial={{ x: '100vw' }}
+      animate={{ x: 0 }}
+    >
       <MotionText
+        align="center"
         fontFamily="Faster One"
         color="white"
         fontSize="50px"
@@ -23,6 +31,6 @@ export default function Landing() {
       >
         Web3 Developer
       </MotionText>
-    </Container>
+    </MotionContainer>
   );
 }
