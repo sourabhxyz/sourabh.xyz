@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import LaserLights from '../components/laser-lights';
+import LaserLights from '../components/laserLights';
 import Landing from '../sections/landing';
 import { useState, useEffect } from 'react';
 import { Box } from '@chakra-ui/react';
@@ -35,6 +35,7 @@ export default function Home() {
       <Head>
         <title>sourabh.xyz</title>
         <meta name="description" content="About Sourabh" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       {/* {LaserLights()} */}
       {/* {Landing()} */}

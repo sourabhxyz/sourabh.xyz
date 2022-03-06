@@ -15,7 +15,7 @@ function Circle(props) {
       w="40px"
       bg={props.color}
       borderRadius="full"
-      bgGradient={`radial-gradient(#FFE3E2 10%, ${props.color} 50%, ${props.color})`}
+      // bgGradient={`radial-gradient(#FFE3E2 10%, ${props.color} 50%, ${props.color})`}
       boxShadow={`0px 0px 10px 10px ${props.color}`}
       // initial={`0px 0px 10px 10px ${props.color}`}
       animate={{ scale: 4 }}
@@ -55,8 +55,9 @@ function Circle(props) {
 // duration. Can be used only if type is tween.
 // type: (by default type is spring). See docs for more info.
 // with spring type, we can use stiffness property.
-//
-
+// 3. whileHover = {{scale: 1.3, originX: 0}}
+// 4. I ignored two variants videos. maybe things like "when: beforeChildren" and "staggering" are possible o/w too.
+// 5. animatepresence. No need for any notes as this video explains it all: https://www.youtube.com/watch?v=Imyi2V7WgGU&list=PL4cUxeGkcC9iHDnQfTHEVVceOEBsOf07i&index=12 this video also has basics of variants. can watch in extreme fast forward without need of any audio.
 export default function LaserLights() {
   return (
     <Flex align="flex-end" justify="center" bg="black" h="100vh" pb="100px">
