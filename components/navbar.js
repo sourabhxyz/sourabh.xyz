@@ -1,5 +1,6 @@
 // to simplify svg: https://jakearchibald.github.io/svgomg/
 // to convert svg to react component: https://react-svgr.com/playground/
+// since there is only one page, 'anchor links' are deployed.
 
 import Logo from './logo';
 
@@ -9,12 +10,10 @@ import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 
 import {
-  Button,
   Box,
   Flex,
   Text,
   IconButton,
-  Stack,
   Collapse,
   Icon,
   Link,
@@ -26,7 +25,12 @@ import {
   VStack,
 } from '@chakra-ui/react';
 
-import { HamburgerIcon, CloseIcon, ChevronDownIcon } from '@chakra-ui/icons';
+import {
+  HamburgerIcon,
+  CloseIcon,
+  ChevronDownIcon,
+  ChevronUpIcon,
+} from '@chakra-ui/icons';
 
 import { FaGithub, FaTwitter, FaYoutube } from 'react-icons/fa';
 
@@ -37,7 +41,7 @@ const NAV_ITEMS = [
   },
   {
     label: 'Bio & Works',
-    href: '#bio-works',
+    href: '/#bio-works',
   },
   {
     label: 'Social',
@@ -70,7 +74,6 @@ const NAV_ITEMS = [
 ];
 
 export default function Navbar() {
-  const { isOpen, onToggle } = useDisclosure();
   const [logoHover, setLogoHover] = useState(false);
   /*
   Logic.
@@ -86,8 +89,10 @@ export default function Navbar() {
     <Flex
       position="sticky"
       top="0"
+      zIndex={'docked'}
       bg="white"
-      backdropFilter={'saturate(180%) blur(20px)'}
+      // backdropFilter={'auto'}
+      // backdropBlur={'20px'}
       borderBottom={1}
       borderStyle={'solid'}
       borderColor="gray.200"
@@ -109,7 +114,7 @@ export default function Navbar() {
         <DesktopNav />
       </Flex>
       <Box display={{ md: 'none' }}>
-        <MobileNav isOpen={isOpen} onToggle={onToggle} />
+        <MobileNav />
       </Box>
     </Flex>
   );
@@ -118,6 +123,10 @@ export default function Navbar() {
 const DesktopNav = () => {
   const popoverContentBgColor = 'white';
   const router = useRouter();
+  const activeStyle = {
+    bgGradient: 'linear(to-r, red, blue)',
+    bgClip: 'text',
+  };
   return (
     <HStack spacing={4}>
       {NAV_ITEMS.map((navItem) => (
@@ -139,12 +148,18 @@ const DesktopNav = () => {
                   {navItem.label}
                 </Text>
               ) : (
-                <NextLink href={navItem.href ?? '#'} passHref>
+                <NextLink href={navItem.href} passHref>
                   <Link
                     p={2}
                     // fontSize={'sm'}
                     // fontWeight={500}
                     color={'black'}
+                    bgGradient={
+                      router.asPath === navItem.href
+                        ? 'linear(to-r, red, blue)'
+                        : ''
+                    }
+                    bgClip={router.asPath === navItem.href ? 'text' : ''}
                     _hover={{
                       bgGradient: 'linear(to-r, red, blue)',
                       bgClip: 'text',
@@ -164,7 +179,7 @@ const DesktopNav = () => {
                 borderRadius={'xl'}
                 width={'148px'}
               >
-                {navItem.children.map((child) => DesktopSubNav(child))}
+                {navItem.children.map((child) => SubNav(child))}
               </PopoverContent>
             )}
           </Popover>
@@ -174,16 +189,15 @@ const DesktopNav = () => {
   );
 };
 
-function DesktopSubNav(child) {
+function SubNav(child) {
   const [subNavHover, setSubNavHover] = useState(false);
   return (
-    <NextLink href={child.href} passHref>
+    <NextLink href={child.href} passHref key={child.label}>
       <Link
-        key={child.label}
         isExternal={true}
         onMouseEnter={() => setSubNavHover(true)}
         onMouseLeave={() => setSubNavHover(false)}
-        _hover={{ textDecoratoin: 'none' }} // don't want that underline on links.
+        _hover={{ textDecoration: 'none' }} // don't want that underline on links.
       >
         <Flex direction={'column'} alignItems={'center'} p={2}>
           <Icon as={child.icon} boxSize={'1.5em'} color={child.iconColor} />
@@ -200,7 +214,11 @@ function DesktopSubNav(child) {
   );
 }
 
-function MobileNav({ isOpen, onToggle }) {
+function MobileNav() {
+  const { isOpen, onToggle } = useDisclosure();
+  const router = useRouter();
+  const [collapseOpen, setCollapseOpen] = useState(false);
+  const [navHover, setNavHover] = useState(false);
   return (
     <Popover
       trigger={'click'}
@@ -221,54 +239,65 @@ function MobileNav({ isOpen, onToggle }) {
         border={0}
         boxShadow={'xl'}
         borderRadius={'xl'}
-        w={'170px'}
+        w={'185px'}
+        p={2}
       >
-        {NAV_ITEMS.map((navItem) => MobileNavSub(navItem))}
+        {NAV_ITEMS.map((navItem) => (
+          <Box key={navItem.label}>
+            {navItem.children ? (
+              <Flex
+                onClick={() =>
+                  collapseOpen ? setCollapseOpen(false) : setCollapseOpen(true)
+                }
+                onMouseEnter={() => setNavHover(true)}
+                onMouseLeave={() => setNavHover(false)}
+                justifyContent={'space-between'}
+              >
+                <Text
+                  bgGradient={navHover ? 'linear(to-r, red, blue)' : ''}
+                  bgClip={navHover ? 'text' : ''}
+                >
+                  {navItem.label}
+                </Text>
+                <Icon as={collapseOpen ? ChevronUpIcon : ChevronDownIcon} />
+              </Flex>
+            ) : (
+              <NextLink href={navItem.href} passHref>
+                <Link
+                  bgGradient={
+                    router.asPath === navItem.href
+                      ? 'linear(to-r, red, blue)'
+                      : ''
+                  }
+                  bgClip={router.asPath === navItem.href ? 'text' : ''}
+                  _hover={{
+                    bgGradient: 'linear(to-r, red, blue)',
+                    bgClip: 'text',
+                  }}
+                >
+                  {navItem.label}
+                </Link>
+              </NextLink>
+            )}
+            {navItem.children && (
+              // documentation here: https://chakra-ui.com/docs/components/other/transitions
+              <Collapse in={collapseOpen} animateOpacity>
+                <VStack
+                  ml={2}
+                  borderLeft={1}
+                  borderStyle={'solid'}
+                  borderColor={'gray.200'}
+                  align={'start'}
+                  pl={3}
+                  spacing={0}
+                >
+                  {navItem.children.map((child) => SubNav(child))}
+                </VStack>
+              </Collapse>
+            )}
+          </Box>
+        ))}
       </PopoverContent>
     </Popover>
-  );
-}
-
-function MobileNavSub(navItem) {
-  const [collapseOpen, setCollapseOpen] = useState(false);
-  return (
-    <Box key={navItem.label}>
-      {navItem.children ? (
-        <Text
-          onClick={() =>
-            collapseOpen ? setCollapseOpen(false) : setCollapseOpen(true)
-          }
-        >
-          {navItem.label}
-        </Text>
-      ) : (
-        <Link href={navItem.href}>{navItem.label}</Link>
-      )}
-      {navItem.children && (
-        // documentation here: https://chakra-ui.com/docs/components/other/transitions
-        <Collapse in={collapseOpen} animateOpacity>
-          <VStack
-            ml={2}
-            borderLeft={1}
-            borderStyle={'solid'}
-            borderColor={'gray.200'}
-            align={'start'}
-            pl={3}
-          >
-            {navItem.children.map((child) => (
-              <Flex
-                direction={'column'}
-                alignItems={'center'}
-                _hover={{ color: 'pink' }}
-                key={'child.label'}
-              >
-                <Icon as={child.icon} boxSize={'1.5em'} />
-                <Text>{child.subLabel}</Text>
-              </Flex>
-            ))}
-          </VStack>
-        </Collapse>
-      )}
-    </Box>
   );
 }

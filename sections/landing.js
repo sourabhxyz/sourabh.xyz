@@ -1,7 +1,8 @@
 // Motivation: https://dexpools.com/
 
-import { Container, Text, Box, Flex } from '@chakra-ui/react';
+import { Container, Text, Box, Flex, Button } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
+import { useRouter } from 'next/router';
 import Navbar from '../components/navbar';
 
 const MotionText = motion(Text);
@@ -9,6 +10,7 @@ const MotionContainer = motion(Container);
 const MotionBox = motion(Box);
 
 export default function Landing() {
+  const router = useRouter();
   return (
     <MotionContainer
       maxW="container.xl"
@@ -38,8 +40,8 @@ export default function Landing() {
       <Box h="100vh" bg={'red'}>
         hwello.
       </Box>
-      <Box h="100vh" bg={'green'}>
-        hwello.
+      <Box h="100vh" bg={'green'} id="bio-works">
+        <Button onClick={() => console.log(router.asPath)}>click me</Button>
       </Box>
     </MotionContainer>
   );
