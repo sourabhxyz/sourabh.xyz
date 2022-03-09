@@ -1,12 +1,81 @@
 import { motion } from 'framer-motion';
+import { Text } from '@chakra-ui/react';
+import { useState, useEffect } from 'react';
 
-export default function Logo({ logoHover }) {
+export default function RotatingMandala() {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    // just trigger this so that the initial state
+    // is updated as soon as the component is mounted
+    // related: https://stackoverflow.com/a/63408216
+    handleScroll();
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  return (
+    <motion.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="100vw"
+      // width="50"
+      // height="50"
+      viewBox="0 0 302.05 341.85"
+    >
+      <defs>
+        <style>
+          {`.cls-1,.cls-2{fill:#fff;stroke:#231f20;stroke-miterlimit:10}.cls-2{fill:none}`}
+        </style>
+      </defs>
+      <g id="Layer_2" data-name="Layer 2">
+        <g id="Layer_1-2" data-name="Layer 1">
+          <g id="Swastik">
+            <path
+              class="cls-1"
+              d="M151.03 190.82h100M151.03 90.82h100M51.03 190.82h100M51.03 290.82h100M151.03 90.82v100M51.03 90.82v100M151.03 190.82v100M251.03 190.82v100"
+            />
+          </g>
+          <motion.g
+            id="Outer"
+            // initial={{ rotate: 180 }}
+            // animate={{ rotate: 0 }}
+            // transition={{ duration: 4 }}
+            animate={{ rotate: Math.floor(scrollY / 10) }}
+            // whileHover={{ rotate: 30 }}
+          >
+            <circle
+              id="Circle"
+              class="cls-2"
+              cx="151.03"
+              cy="190.82"
+              r="150.53"
+            />
+            <path
+              class="cls-2"
+              d="m169.69 61.1-19.17-10.55-19.56 9.81 4.11-21.49-15.38-15.57 21.72-2.74 10.05-19.43 9.31 19.8 21.59 3.57-15.96 14.97 3.29 21.63z"
+              // initial={{ pathLength: 0 }}
+              // animate={{ pathLength: 1 }}
+              // transition={{ duration: 4 }}
+            />
+          </motion.g>
+        </g>
+      </g>
+    </motion.svg>
+  );
   return (
     <motion.svg
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      width={50}
-      height={50}
+      width={'100vw'}
+      // height={'100vh'}
       viewBox="0 0 431.87 430.358"
     >
       <defs>
@@ -389,10 +458,7 @@ export default function Logo({ logoHover }) {
           }
         </style>
       </defs>
-      <motion.g
-        id="Mandala"
-        animate={logoHover ? { rotate: 45 } : { rotate: 0 }}
-      >
+      <motion.g id="Mandala" animate={{ rotate: Math.floor(scrollY / 10) }}>
         <g clipPath="url(#clip-path)">
           <path className="cls-3" d="M649.013 465-217.013-35" />
           <path
@@ -2699,73 +2765,9 @@ export default function Logo({ logoHover }) {
         </g>
       </motion.g>
       <g id="Swastika">
-        <motion.path
-          className="cls-57"
-          d="M290 289v-73.5h-73.5 0H143V142"
-          initial={{ pathLength: 0 }}
-          animate={{ pathLength: 1 }}
-          transition={{ duration: 3 }}
-        />
-        <motion.path
-          className="cls-57"
-          d="M290 142h-73.5v147H143"
-          initial={{ pathLength: 0 }}
-          animate={{ pathLength: 1 }}
-          transition={{ duration: 3, ease: 'easeInOut' }}
-        />
+        <path className="cls-57" d="M290 289v-73.5h-73.5 0H143V142" />
+        <path className="cls-57" d="M290 142h-73.5v147H143" />
       </g>
     </motion.svg>
   );
-}
-
-// Old
-{
-  /* <motion.svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="50"
-            height="50"
-            viewBox="0 0 302.05 341.85"
-          >
-            <defs>
-              <style>
-                {`.cls-1,.cls-2{fill:#fff;stroke:#231f20;stroke-miterlimit:10}.cls-2{fill:none}`}
-              </style>
-            </defs>
-            <g id="Layer_2" data-name="Layer 2">
-              <g id="Layer_1-2" data-name="Layer 1">
-                <g id="Swastik">
-                  <motion.path
-                    class="cls-1"
-                    d="M151.03 190.82h100M151.03 90.82h100M51.03 190.82h100M51.03 290.82h100M151.03 90.82v100M51.03 90.82v100M151.03 190.82v100M251.03 190.82v100"
-                    initial={{ pathLength: 0 }}
-                    animate={{ pathLength: 1 }}
-                    transition={{ duration: 4 }}
-                  />
-                </g>
-                <motion.g
-                  id="Outer"
-                  // initial={{ rotate: 180 }}
-                  // animate={{ rotate: 0 }}
-                  // transition={{ duration: 4 }}
-                  animate={logoHover ? { rotate: 45 } : { rotate: 0 }}
-                  // whileHover={{ rotate: 30 }}
-                >
-                  <circle
-                    id="Circle"
-                    class="cls-2"
-                    cx="151.03"
-                    cy="190.82"
-                    r="150.53"
-                  />
-                  <path
-                    class="cls-2"
-                    d="m169.69 61.1-19.17-10.55-19.56 9.81 4.11-21.49-15.38-15.57 21.72-2.74 10.05-19.43 9.31 19.8 21.59 3.57-15.96 14.97 3.29 21.63z"
-                    // initial={{ pathLength: 0 }}
-                    // animate={{ pathLength: 1 }}
-                    // transition={{ duration: 4 }}
-                  />
-                </motion.g>
-              </g>
-            </g>
-          </motion.svg> */
 }

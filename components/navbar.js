@@ -9,6 +9,8 @@ import { useState } from 'react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 
+import { navHeight } from '../globalVars';
+
 import {
   Box,
   Flex,
@@ -79,9 +81,9 @@ export default function Navbar() {
   Logic.
     * FlexBegin
       * Logo
-      * IconButton - disappear at md. 
-      * DesktopNav - appear at md.
-      * MobileNav - show only when menu is open and when at mobile screen (disappear at md - we must make it disappear at md as what if user dynamically changes size).
+      * IconButton - disappear at sm. 
+      * DesktopNav - appear at sm.
+      * MobileNav - show only when menu is open and when at mobile screen (disappear at sm - we must make it disappear at sm as what if user dynamically changes size).
     * FlexEnd
   */
 
@@ -96,10 +98,10 @@ export default function Navbar() {
       borderBottom={1}
       borderStyle={'solid'}
       borderColor="gray.200"
-      h={'60px'}
+      h={navHeight}
       px="4"
       align={'center'}
-      justify={{ base: 'space-between', md: 'none' }}
+      justify={{ base: 'space-between', sm: 'none' }}
     >
       {/* Logo */}
       <NextLink href="/" passHref>
@@ -110,10 +112,10 @@ export default function Navbar() {
           <Logo logoHover={logoHover} />
         </Link>
       </NextLink>
-      <Flex display={{ base: 'none', md: 'flex' }}>
+      <Flex display={{ base: 'none', sm: 'flex' }}>
         <DesktopNav />
       </Flex>
-      <Box display={{ md: 'none' }}>
+      <Box display={{ sm: 'none' }}>
         <MobileNav />
       </Box>
     </Flex>
@@ -127,6 +129,7 @@ const DesktopNav = () => {
     bgGradient: 'linear(to-r, red, blue)',
     bgClip: 'text',
   };
+  console.log(router.asPath);
   return (
     <HStack spacing={4}>
       {NAV_ITEMS.map((navItem) => (

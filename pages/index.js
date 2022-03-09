@@ -2,24 +2,6 @@ import Head from 'next/head';
 import LaserLights from '../components/laserLights';
 import Landing from '../sections/landing';
 import { useState, useEffect } from 'react';
-import { Box } from '@chakra-ui/react';
-import { motion } from 'framer-motion';
-
-const MotionBox = motion(Box);
-
-// function MotionLanding() {
-//   return (
-//     <MotionBox
-//       initial={{
-//         x: '100vw',
-//       }}
-//       animate={{ x: 0 }} // I am happy with default spring type's duration for this animation.
-//       // transition={{ delay: 1 }}
-//     >
-//       {Landing()}
-//     </MotionBox>
-//   );
-// }
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -37,8 +19,6 @@ export default function Home() {
         <meta name="description" content="About Sourabh" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {/* {LaserLights()} */}
-      {/* {Landing()} */}
       {loading ? LaserLights() : Landing()}
     </div>
   );
