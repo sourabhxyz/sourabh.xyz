@@ -11,14 +11,22 @@ import { ChevronDownIcon } from '@chakra-ui/icons';
 
 const MotionContainer = motion(Container);
 const MotionIcon = motion(Icon);
+const MotionBox = motion(Box);
 
 export default function Landing() {
   return (
+    /* 
+    My initial animation of 
+      c
+    is causing issues for mobile screens where width then becomes 50%. Discussion here https://stackoverflow.com/questions/68911663/framer-motion-animation-causes-website-to-expand & here https://github.com/framer/motion/issues/987. Instead of applying there fixes now, I have decided to see it once the site is complete. 
+    */
     <MotionContainer
       maxW="container.md"
+      // overflow={'hidden'}
+      // position={'relative'}
       // bg="white"
-      initial={{ x: '100%' }}
-      animate={{ x: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
     >
       <Navbar />
       <Hero />
@@ -65,8 +73,9 @@ function Hero() {
           delay: '3',
         }}
       ></MotionIcon>
-      <Box position={'absolute'} top="30%" left="50%">
-        <Heading fontFamily="Faster One">Unleashing DeFi!</Heading>
+      {/* Need to be very careful here. Increasing left may get text to overflow (basically an issue for long works like Unleashing), ruining the mobile experience. */}
+      <Box position={'absolute'} top="30%" left="30%">
+        <Heading fontFamily="Faster One">Unleashing Defi!</Heading>
         <Text>Meet Web3 Developer</Text>
       </Box>
     </Box>
@@ -83,7 +92,7 @@ function BioWorks() {
   }, []); // an empty dependency array so that it runs only once at render.
   return (
     // an aliter could be background-attachment. https://stackoverflow.com/a/36532574/11183512 but I avoided it as it isn't supported in safari. It might have a workaround though: https://css-tricks.com/the-fixed-background-attachment-hack/ but I am happy with my solution.
-    // My solution only has one issue: https://stackoverflow.com/a/13546011/11183512 one can easily fix this by putting overflow: 'hidden' but for me it adds another scroll bar (which could be preferrable) but I am using JS solution.
+    // My solution only has one issue: https://stackoverflow.com/a/13546011/11183512 https://stackoverflow.com/questions/13545947/position-absolute-and-parent-height one can easily fix this by putting overflow: 'hidden' but for me it adds another scroll bar (which could be preferrable) but I am using JS solution.
     <Box
       position={'relative'}
       border="1px"
