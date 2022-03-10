@@ -1,6 +1,6 @@
 // Motivation: https://dexpools.com/
 
-import { Container, Text, Box, Heading, Icon } from '@chakra-ui/react';
+import { Container, Text, Box, Heading, Icon, Flex } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import Navbar from '../components/navbar';
 import { navHeight } from '../globalVars';
@@ -13,6 +13,8 @@ const MotionContainer = motion(Container);
 const MotionIcon = motion(Icon);
 const MotionBox = motion(Box);
 
+const containerSize = '768px'; // container.md
+
 export default function Landing() {
   return (
     /* 
@@ -21,7 +23,7 @@ export default function Landing() {
     is causing issues for mobile screens where width then becomes 50%. Discussion here https://stackoverflow.com/questions/68911663/framer-motion-animation-causes-website-to-expand & here https://github.com/framer/motion/issues/987. Instead of applying there fixes now, I have decided to see it once the site is complete. 
     */
     <MotionContainer
-      maxW="container.md"
+      maxW={containerSize}
       // overflow={'hidden'}
       // position={'relative'}
       // bg="white"
@@ -36,9 +38,18 @@ export default function Landing() {
 }
 
 function Hero() {
+  const headingLeftPer = '30%';
+  const headingLeftPos =
+    (Number(headingLeftPer.slice(0, -1)) / 100) *
+    Number(containerSize.substring(0, containerSize.length - 2));
+  const headingWidth =
+    Number(containerSize.substring(0, containerSize.length - 2)) -
+    headingLeftPos;
+  console.log(headingLeftPos);
+  console.log(headingWidth);
   return (
     <Box
-      w={'full'}
+      // w={'auto'} // this is an issue because 1. default is already auto I believe, 2. there is no width of container set.
       h={`calc(100vh - ${navHeight})`}
       bgImage={
         'url(https://c8.alamy.com/comp/FJ0JN2/businessman-wearing-black-suit-throwing-newspaper-in-the-air-FJ0JN2.jpg)'
@@ -74,10 +85,28 @@ function Hero() {
         }}
       ></MotionIcon>
       {/* Need to be very careful here. Increasing left may get text to overflow (basically an issue for long works like Unleashing), ruining the mobile experience. */}
-      <Box position={'absolute'} top="30%" left="30%">
-        <Heading fontFamily="Faster One">Unleashing Defi!</Heading>
-        <Text>Meet Web3 Developer</Text>
-      </Box>
+      <Flex
+        alignItems={'center'}
+        justifyContent={'center'}
+        w="auto"
+        h="full"
+        direction={'column'}
+
+        // h={`calc(100vh - ${navHeight})`}
+      >
+        <Heading
+          fontFamily="Faster One"
+          // this overflowwrap won't work with w='auto'
+          overflowWrap="break-word"
+          w="full"
+          // margin will increase width but padding won't so use padding.
+          // paddingLeft={'100px'}
+          textAlign={'center'}
+        >
+          Unleashing Defi!
+        </Heading>
+        <Text textAlign={'center'}>Meet Web3 Developer</Text>
+      </Flex>
     </Box>
   );
 }
@@ -109,7 +138,7 @@ function BioWorks() {
         top={'0px'}
         // w={'full'}
         h="100vh"
-        w="full"
+        // w="full"
         // zIndex={'5'}
         // h={'calc(100vh - 60px)'}
         bg="red"

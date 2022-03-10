@@ -285,7 +285,7 @@ export default function Timeline() {
             />
 
             <HStack
-              width="full"
+              // width="full"
               alignItems="flex-start"
               justifyContent="flex-start"
             >
@@ -297,11 +297,23 @@ export default function Timeline() {
                 bgGradient={'linear(to-r, red.500, blue.500)'}
               />
 
-              <VStack width="full" spacing={2} textAlign="left">
-                <Heading width="full" size="xs" textAlign="left">
+              <VStack
+                // width="full"
+                spacing={2}
+                textAlign="left"
+              >
+                <Heading
+                  // width="full"
+                  size="xs"
+                  textAlign="left"
+                >
                   {title}
                 </Heading>
-                <Text size="sm" width="full" textAlign={'left'}>
+                <Text
+                  size="sm"
+                  // width="full"
+                  textAlign={'left'}
+                >
                   {description}
                 </Text>
               </VStack>
