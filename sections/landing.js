@@ -1,17 +1,24 @@
 // Motivation: https://dexpools.com/
 
-import { Container, Text, Box, Heading, Icon, Flex } from '@chakra-ui/react';
+import {
+  Container,
+  Text,
+  Box,
+  Heading,
+  Icon,
+  Flex,
+  Button,
+} from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import Navbar from '../components/navbar';
 import { navHeight } from '../globalVars';
 import Timeline from './timeline';
 import { useState, useEffect, useRef } from 'react';
-
 import { ChevronDownIcon } from '@chakra-ui/icons';
+import HeroBg from '../components/heroBg';
 
 const MotionContainer = motion(Container);
 const MotionIcon = motion(Icon);
-const MotionBox = motion(Box);
 
 const containerSize = '768px'; // container.md
 
@@ -38,32 +45,24 @@ export default function Landing() {
 }
 
 function Hero() {
-  const headingLeftPer = '30%';
-  const headingLeftPos =
-    (Number(headingLeftPer.slice(0, -1)) / 100) *
-    Number(containerSize.substring(0, containerSize.length - 2));
-  const headingWidth =
-    Number(containerSize.substring(0, containerSize.length - 2)) -
-    headingLeftPos;
-  console.log(headingLeftPos);
-  console.log(headingWidth);
   return (
     <Box
       // w={'auto'} // this is an issue because 1. default is already auto I believe, 2. there is no width of container set.
-      h={`calc(100vh - ${navHeight})`}
-      bgImage={
-        'url(https://c8.alamy.com/comp/FJ0JN2/businessman-wearing-black-suit-throwing-newspaper-in-the-air-FJ0JN2.jpg)'
-      }
+      h={`calc(100vh - ${navHeight})`} // since height is fixed here, if our svg requires more height, it won't be able to take it, i.e., there won't be any overflow.
+      // bgImage={'url(/heroBg.svg)'}
       // https://stackoverflow.com/a/30679082/11183512
-      bgSize={'cover'}
+      // bgSize={'cover'}
       // https://developer.mozilla.org/en-US/docs/Web/CSS/background-size
       // bgSize={`auto calc(100vh - ${navHeight})`}
       // 'no-repeat' is not needed when 'bgSize' is 'cover'.
       // bgRepeat={'no-repeat'}
       // need bgPosition as explained here: https://www.youtube.com/watch?v=3T_Jy1CqH9k when setting 'bgSize' as 'cover'.
-      bgPosition={'center left'}
+      // bgPosition={'bottom left'}
       position={'relative'}
     >
+      <Box position={'absolute'} bottom={'0px'} left={'0px'}>
+        <HeroBg />
+      </Box>
       <MotionIcon
         as={ChevronDownIcon}
         position={'absolute'}
