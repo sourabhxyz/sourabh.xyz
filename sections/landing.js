@@ -71,7 +71,8 @@ export default function Landing() {
 function Hero() {
   const headingFW = '600';
   const headingFS = { base: 'xl', sm: '2xl', lg: '3xl' };
-
+  const textFW = '500';
+  const textFS = { base: 'md', sm: 'lg', lg: 'xl' };
   return (
     <Box
       // w={'auto'} // this is an issue because 1. default is already auto I believe, 2. there is no width of container set.
@@ -130,7 +131,20 @@ function Hero() {
           // animate={{ opacity: 1, y: '0px' }}
         >
           <MotionText fontWeight={headingFW} fontSize={headingFS}>
-            {'Swasti! Meet'.split('').map((char, index) => {
+            {'Swasti!'.split('').map((char, index) => {
+              return (
+                <MotionBox
+                  as={'span'}
+                  key={char + '-' + index}
+                  variants={letter}
+                >
+                  {char}
+                </MotionBox>
+              );
+            })}
+          </MotionText>
+          <MotionText fontWeight={headingFW} fontSize={headingFS}>
+            {'Meet'.split('').map((char, index) => {
               return (
                 <MotionBox
                   as={'span'}
@@ -165,17 +179,13 @@ function Hero() {
           </MotionText>
         </HStack>
         <HStack backdropFilter={'blur(5px)'} borderRadius="xl" p="10px">
-          <MotionText
-            fontWeight={headingFW}
-            fontSize={headingFS}
-            variants={letter}
-          >
+          <MotionText fontWeight={textFW} fontSize={textFS} variants={letter}>
             A
           </MotionText>
           <Text
             position={'relative'}
-            fontWeight={headingFW}
-            fontSize={headingFS}
+            fontWeight={textFW}
+            fontSize={textFS}
             _after={{
               content: "''",
               width: 'full',
@@ -199,7 +209,7 @@ function Hero() {
               );
             })}
           </Text>
-          <Text fontWeight={headingFW} fontSize={headingFS}>
+          <Text fontWeight={textFW} fontSize={textFS}>
             {'Developer'.split('').map((char, index) => {
               return (
                 <MotionBox
