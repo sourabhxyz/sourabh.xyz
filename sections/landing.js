@@ -16,6 +16,7 @@ import Timeline from './timeline';
 import { useState, useEffect, useRef } from 'react';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import HeroBg from '../components/heroBg';
+import BioWorksBg from '../components/bioWorksBg';
 
 const MotionContainer = motion(Container);
 const MotionIcon = motion(Icon);
@@ -140,15 +141,18 @@ function BioWorks() {
         // w="full"
         // zIndex={'5'}
         // h={'calc(100vh - 60px)'}
-        bg="red"
-        opacity={'50%'}
+        // bg="red"
+        // opacity={'50%'}
         // bgImage={
         //   'url(https://c8.alamy.com/comp/FJ0JN2/businessman-wearing-black-suit-throwing-newspaper-in-the-air-FJ0JN2.jpg)'
         // }
         // bgSize={'cover'}
         // bgPosition={'center center'}
-        id="findme"
+        // id="findme"
       >
+        <Box position={'absolute'} top={'0px'} left={'0px'} id="ajay">
+          <BioWorksBg />
+        </Box>
         {/* <Icon
       position={}
       

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { navHeight } from '../globalVars';
 
-export default function HeroBg() {
+export default function BioWorksBg() {
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
@@ -38,14 +38,13 @@ export default function HeroBg() {
   const imageWidth = (targetHeight / 593.33) * 736;
   const toCrop = 736 - imageWidth; // what if this is negative?
   const targetWidth = Math.min(736, deviceWidth - 25);
-  // maybe I could have just done width=`min(736, calc(...))`
   return (
     <svg
       id="Man"
       xmlns="http://www.w3.org/2000/svg"
       width={targetWidth}
       // height="593.33"
-      viewBox={`${scrollY} 0 736 593.33`}
+      viewBox={`0 0 736 593.33`}
     >
       <defs>
         <linearGradient
