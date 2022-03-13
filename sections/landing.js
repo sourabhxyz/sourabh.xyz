@@ -8,6 +8,7 @@ import {
   Icon,
   Flex,
   Button,
+  HStack,
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import Navbar from '../components/navbar';
@@ -20,8 +21,30 @@ import BioWorksBg from '../components/bioWorksBg';
 
 const MotionContainer = motion(Container);
 const MotionIcon = motion(Icon);
-
+const MotionBox = motion(Box);
+const MotionHStack = motion(HStack);
 const containerSize = '768px'; // container.md
+const MotionText = motion(Text);
+const MotionFlex = motion(Flex);
+
+const sentence = {
+  hidden: {},
+  visible: {
+    transition: {
+      dealy: 0.5,
+      staggerChildren: 0.09,
+    },
+  },
+};
+
+const letter = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+  },
+};
 
 export default function Landing() {
   return (
@@ -46,6 +69,9 @@ export default function Landing() {
 }
 
 function Hero() {
+  const headingFW = '600';
+  const headingFS = { base: 'xl', sm: '2xl', lg: '3xl' };
+
   return (
     <Box
       // w={'auto'} // this is an issue because 1. default is already auto I believe, 2. there is no width of container set.
@@ -61,7 +87,7 @@ function Hero() {
       // bgPosition={'bottom left'}
       position={'relative'}
     >
-      <Box position={'absolute'} bottom={'0px'} left={'0px'}>
+      <Box position={'absolute'} bottom={'0px'} left={'0px'} zIndex={'-1'}>
         <HeroBg />
       </Box>
       <MotionIcon
@@ -70,7 +96,7 @@ function Hero() {
         bottom="20px"
         left="50%"
         boxSize={'2em'}
-        color="white"
+        color="black"
         animate={{
           y: ['0px', '2px', '0px'],
           opacity: [0.7, 1, 0.7],
@@ -85,16 +111,109 @@ function Hero() {
         }}
       ></MotionIcon>
       {/* Need to be very careful here. Increasing left may get text to overflow (basically an issue for long works like Unleashing), ruining the mobile experience. */}
-      <Flex
+      <MotionFlex
         alignItems={'center'}
         justifyContent={'center'}
         w="auto"
         h="full"
         direction={'column'}
-
+        variants={sentence}
+        initial="hidden"
+        animate="visible"
         // h={`calc(100vh - ${navHeight})`}
       >
-        <Heading
+        <HStack
+          backdropFilter={'blur(7px)'}
+          borderRadius="2xl"
+          p="10px"
+          // initial={{ opacity: 0, y: '-250px' }}
+          // animate={{ opacity: 1, y: '0px' }}
+        >
+          <MotionText fontWeight={headingFW} fontSize={headingFS}>
+            {'Swasti! Meet'.split('').map((char, index) => {
+              return (
+                <MotionBox
+                  as={'span'}
+                  key={char + '-' + index}
+                  variants={letter}
+                >
+                  {char}
+                </MotionBox>
+              );
+            })}
+          </MotionText>
+          <MotionText
+            position={'relative'}
+            fontWeight={headingFW}
+            fontSize={headingFS}
+            _after={{
+              content: "''",
+              width: 'full',
+              height: '30%',
+              position: 'absolute',
+              bottom: 1,
+              left: 0,
+              bg: 'red.400',
+              zIndex: -1,
+            }}
+          >
+            {'Sourabh'.split('').map((char, index) => (
+              <MotionBox as={'span'} key={char + '-' + index} variants={letter}>
+                {char}
+              </MotionBox>
+            ))}
+          </MotionText>
+        </HStack>
+        <HStack backdropFilter={'blur(5px)'} borderRadius="xl" p="10px">
+          <MotionText
+            fontWeight={headingFW}
+            fontSize={headingFS}
+            variants={letter}
+          >
+            A
+          </MotionText>
+          <Text
+            position={'relative'}
+            fontWeight={headingFW}
+            fontSize={headingFS}
+            _after={{
+              content: "''",
+              width: 'full',
+              height: '30%',
+              position: 'absolute',
+              bottom: 1,
+              left: 0,
+              bg: 'blue.400',
+              zIndex: -1,
+            }}
+          >
+            {'Web3'.split('').map((char, index) => {
+              return (
+                <MotionBox
+                  as={'span'}
+                  key={char + '-' + index}
+                  variants={letter}
+                >
+                  {char}
+                </MotionBox>
+              );
+            })}
+          </Text>
+          <Text fontWeight={headingFW} fontSize={headingFS}>
+            {'Developer'.split('').map((char, index) => {
+              return (
+                <MotionBox
+                  as={'span'}
+                  key={char + '-' + index}
+                  variants={letter}
+                >
+                  {char}
+                </MotionBox>
+              );
+            })}
+          </Text>
+        </HStack>
+        {/* <Heading
           fontFamily="Faster One"
           // this overflowwrap won't work with w='auto'
           overflowWrap="break-word"
@@ -105,8 +224,8 @@ function Hero() {
         >
           Unleashing Defi!
         </Heading>
-        <Text textAlign={'center'}>Meet Web3 Developer</Text>
-      </Flex>
+        <Text textAlign={'center'}>Meet Web3 Developer</Text> */}
+      </MotionFlex>
     </Box>
   );
 }
@@ -169,185 +288,6 @@ function BioWorks() {
       >
         {Timeline()}
       </Box>
-      {/* <Box position={'absolute'} top={'0px'} ref={timeLineRef}>
-        <Text>first</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>alksdjfalks;jfas;lkfj</Text>
-        <Text>last</Text>
-      </Box> */}
       {/* <MotionText
         align="center"
         fontFamily="Faster One"
