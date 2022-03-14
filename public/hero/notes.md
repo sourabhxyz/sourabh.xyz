@@ -1,0 +1,6 @@
+- Googled "man flying on rocket" for reference images.
+- Googled "aeroplane carrying banner" & "rocket carrying banner" for references images.
+- Clipping mask tutorial: https://www.youtube.com/watch?v=cHoXTxN0x0s
+- Warp text into shapes tutorial: https://www.youtube.com/watch?v=xE_W3g-rxls
+- Text gradient tutorial: https://www.youtube.com/watch?v=Wg1lL6tgq3c
+- Using Google fonts with illustrator: https://www.youtube.com/watch?v=3JMb9O98iig

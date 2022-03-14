@@ -42,8 +42,8 @@ const NAV_ITEMS = [
     href: '/',
   },
   {
-    label: 'Bio & Works',
-    href: '/#bio-works',
+    label: 'Timeline',
+    href: '/#timeline',
   },
   {
     label: 'Social',

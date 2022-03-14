@@ -244,76 +244,16 @@ function Hero() {
 function BioWorks() {
   const headingFW = '600';
   const headingFS = { base: 'xl', sm: '2xl', lg: '3xl' };
-  const textFW = '600';
-  const textFS = { base: 'xl', sm: '2xl', lg: '3xl' };
-  /* The purpose of following logic is to get height of content */
-  const [timeLineHeight, setTimeLineHeight] = useState(0);
-  const timeLineRef = useRef(null);
-
-  useEffect(() => {
-    setTimeLineHeight(timeLineRef.current.clientHeight);
-  }, []); // an empty dependency array so that it runs only once at render.
   return (
+    // to see how to have full height relative background see: https://github.com/sourabhxyz/sourabh.xyz/commit/772b43eedd2ff994c750ed8e3027c7adbf36bcf9 there I also have logic to get height of container. Since I don't need full background, also I can't have this footer as full background as then text will go over it. Thanks to https://elad.medium.com/css-position-sticky-how-it-really-works-54cd01dc2d46 for help with bottom sticky.
     // an aliter could be background-attachment. https://stackoverflow.com/a/36532574/11183512 but I avoided it as it isn't supported in safari. It might have a workaround though: https://css-tricks.com/the-fixed-background-attachment-hack/ but I am happy with my solution.
     // My solution only has one issue: https://stackoverflow.com/a/13546011/11183512 https://stackoverflow.com/questions/13545947/position-absolute-and-parent-height one can easily fix this by putting overflow: 'hidden' but for me it adds another scroll bar (which could be preferrable) but I am using JS solution.
-    <Box
-      position={'relative'}
-      h={timeLineHeight}
-      id="bio-works"
-      // h="100%"
-      // overflow="hidden"
-      // height={'1%'}
-      // h={'auto'}
-    >
-      <Box
-        position={'sticky'}
-        top={'0px'}
-        // w={'full'}
-        h="100vh"
-        // w="full"
-        // zIndex={'5'}
-        // h={'calc(100vh - 60px)'}
-        // bg="red"
-        // opacity={'50%'}
-        // bgImage={
-        //   'url(https://c8.alamy.com/comp/FJ0JN2/businessman-wearing-black-suit-throwing-newspaper-in-the-air-FJ0JN2.jpg)'
-        // }
-        // bgSize={'cover'}
-        // bgPosition={'center center'}
-        // id="findme"
-      >
-        <Box
-          position={'absolute'}
-          bottom={'0px'}
-          left={'0px'}
-          id="ajay"
-          backdropFilter={'blur(10px)'}
-        >
-          <BioWorksBg />
-        </Box>
-        {/* <Icon
-      position={}
-      
-      >
-        
-      </Icon>   */}
-      </Box>
-      <Box
-        position={'absolute'}
-        top={'0px'}
-        ref={timeLineRef}
-        paddingLeft={'20px'}
-        // paddingTop={'60px'}
-        paddingBottom={'85px'}
-        zIndex={'-1'}
-      >
+    <Box position={'relative'} id="timeline" paddingTop={navHeight}>
+      <Box paddingLeft={'20px'}>
         <Heading
           position={'relative'}
           fontWeight={headingFW}
           fontSize={headingFS}
-          // borderBottom={1}
-          // borderStyle={'solid'}
-          // borderColor={'gray.200'}
           _after={{
             content: "''",
             width: '120px',
@@ -329,24 +269,15 @@ function BioWorks() {
         </Heading>
         {Timeline()}
       </Box>
-      {/* <MotionText
-        align="center"
-        fontFamily="Faster One"
-        color="black"
-        fontSize="50px"
-        whileHover={{
-          // scale: 1.5,
-          textShadow: '0px 0px 8px rgb(255, 255, 255)',
-        }}
-        animate={
-          {
-            // fontSize: '0px',
-          }
-        }
-        // letterSpacing="-5px"
+      <Box
+        position={'sticky'}
+        bottom={'0'}
+        backdropFilter={'blur(10px)'}
+        zIndex={'1'}
+        marginTop={'10px'}
       >
-        Web3 Developer
-      </MotionText> */}
+        <BioWorksBg />
+      </Box>
     </Box>
   );
 }

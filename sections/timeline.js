@@ -17,18 +17,80 @@ const achievements = [
     children: [
       {
         title: [
-          { text: '(Jan) Learned Photoshop & Illustrator', linkText: '' },
+          { text: '(Jan) Learned Photoshop & Illustrator 🎨', linkText: '' },
         ],
-        description:
-          'As good product requires good art and being good with these tools allows oneself to express themself better.',
+        description: [
+          {
+            text: 'As good product requires good art. Also being good with these tools allows one to express themself better. I created all the art of this site myself. See my first NFT ',
+            linkText: '',
+          },
+          {
+            text: 'here',
+            linkText:
+              'https://opensea.io/assets/matic/0x2953399124f0cbb46d2cbacd8a89cf0599974963/106304303023789920371752653475848605360782709816354342763386990413081208684545',
+          },
+          {
+            text: '.',
+            linkText: '',
+          },
+        ],
       },
       {
         title: [
           { text: '(Feb - Mar) Created ', linkText: '' },
-          { text: 'sourabh.xyz', linkText: 'sourabh.xyz' },
+          { text: 'sourabh.xyz', linkText: 'https://sourabh.xyz' },
         ],
-        description:
-          'A site for all my relevant info. Created using Next.js, Chakra-UI, Framer motion. Github link can be found here',
+        description: [
+          {
+            text: 'A site for all my relevant info. Created using ',
+            linkText: '',
+          },
+          {
+            text: 'Next.js',
+            linkText: 'https://nextjs.org/',
+          },
+          {
+            text: ', ',
+            linkText: '',
+          },
+          {
+            text: 'Chakra UI',
+            linkText: 'https://chakra-ui.com/',
+          },
+          {
+            text: ' & ',
+            linkText: '',
+          },
+          {
+            text: 'Framer motion',
+            linkText: 'https://www.framer.com/motion/',
+          },
+          {
+            text: '. Github link can be found ',
+            linkText: '',
+          },
+          {
+            text: 'here',
+            linkText: 'https://github.com/sourabhxyz/sourabh.xyz',
+          },
+          {
+            text: '.',
+            linkText: '',
+          },
+        ],
+      },
+      {
+        title: [
+          { text: '(Currently) Working on ', linkText: '' },
+          { text: 'prakash.love', linkText: 'https://prakash.love' },
+          { text: '.', linkText: '' },
+        ],
+        description: [
+          {
+            text: 'One place website to get all available information of the personality I revere the most.',
+            linkText: '',
+          },
+        ],
       },
     ],
   },
@@ -36,18 +98,32 @@ const achievements = [
     title: '2020-2021',
     children: [
       {
-        title: [{ text: 'Started Crypto mining business', linkText: '' }],
-        description:
-          'First I used to cash out my mined Ethereum & other crypto assets but then after slowly realised their potential, I had them just left as it is. After learning about all the different protocols',
+        title: [
+          {
+            text: 'Prepared for Indian Civil Service Exam',
+            linkText: '',
+          },
+        ],
+        description: [
+          {
+            text: "Coming from a business family background, I didn't require job and thus wanted to explore for this exam. But... (see below event)",
+            linkText: '',
+          },
+        ],
       },
       {
         title: [
           {
-            text: 'Learned web development & smart contract platforms',
+            text: 'Started Crypto mining business & Graphic cards trading',
             linkText: '',
           },
         ],
-        description: 'sldkfj',
+        description: [
+          {
+            text: "By luck as I was selling my personal system, I came to realize about GPU mining and started amassing as many GPU's as I could. First I used to cash out my mined Ethereum & other crypto assets but then after slowly realising the potential of this industry, I started investing in crypto assets. Earlier I was of the opinion to amass as much Ethereum as I can but being in this field, I came to explore various DeFi products & protocols, which showed me how nascent is this space & thus I got inclined towards being developer here. And by the end of 2021, I made my decision to enter this field with full force.",
+            linkText: '',
+          },
+        ],
       },
     ],
   },
@@ -61,8 +137,12 @@ const achievements = [
             linkText: '',
           },
         ],
-        description:
-          "Secured computer science stream in one of India's premium technology schools by being in top 0.4%",
+        description: [
+          {
+            text: "Secured computer science stream in one of India's premium technology schools by being in top 0.4% of ~1.3 million applicants",
+            linkText: '',
+          },
+        ],
       },
       {
         title: [
@@ -71,8 +151,20 @@ const achievements = [
             linkText: '',
           },
         ],
-        description:
-          'See standing of our team, "team_light" here: https://www.codechef.com/rankings/ACMIND18',
+        description: [
+          {
+            text: 'See standing of our team, "team_light" ',
+            linkText: '',
+          },
+          {
+            text: 'here',
+            linkText: 'https://www.codechef.com/rankings/ACMIND18',
+          },
+          {
+            text: '.',
+            linkText: '',
+          },
+        ],
       },
       {
         title: [
@@ -81,7 +173,15 @@ const achievements = [
             linkText: '',
           },
         ],
-        description: 'I am Osome!2',
+        description: [
+          { text: 'Can see standing ', linkText: '' },
+          {
+            text: 'here',
+            linkText:
+              'https://www.hackerearth.com/challenges/competitive/JNJ-3addresscode-2019/leaderboard/page/2/',
+          },
+          { text: '.', linkText: '' },
+        ],
       },
       {
         title: [
@@ -90,25 +190,50 @@ const achievements = [
             linkText: '',
           },
         ],
-        description: 'Fun seeing their culture',
+        description: [{ text: '', linkText: '' }],
       },
       {
         title: [
-          { text: 'Internship at VMware (formely Avi Networks)', linkText: '' },
+          {
+            text: 'Internship at VMware (formerly Avi Networks)',
+            linkText: '',
+          },
         ],
-        description:
-          'I upgraded logging packages to Go language (5x speedup) and did automation using Terraform and Ansible',
+        description: [
+          {
+            text: 'I upgraded logging packages to Go language (5x speedup) and did automation using Terraform and Ansible',
+            linkText: '',
+          },
+        ],
       },
       {
         title: [
           { text: 'Topped my stream & became gold medalist 🥇', linkText: '' },
         ],
-        description:
-          'By being consistently good with academics, I secured highest CGPA in my branch and thus received Gold medal 🥇',
+        description: [
+          {
+            text: 'By being consistently good with academics, I secured highest CGPA in my branch and thus received Gold medal 🥇. ',
+            linkText: '',
+          },
+          {
+            text: 'Here',
+            linkText: 'https://youtu.be/DVCxygL8xoQ?t=7310',
+          },
+          {
+            text: ' I can be seen being awarded.',
+            linkText: '',
+          },
+        ],
       },
       {
-        title: [{ text: 'BTP Appreciation award', linkText: '' }],
-        description: 'hello!',
+        title: [{ text: 'BTP Appreciation award & BTP details', linkText: '' }],
+
+        description: [
+          {
+            text: 'Received certificate of Merit in appreciation of the excellent work done towards the final year B. Tech project titled, "Tiger to RISC V Compiler".',
+            linkText: '',
+          },
+        ],
       },
     ],
   },
@@ -125,6 +250,7 @@ function getPixel(str) {
   //   (str.length - whiteSpaceCount) * (100 / 10) + whiteSpaceCount * (100 / 10);
   // console.log(str, ' ', whiteSpaceCount, ' ', pixels);
   // return `${pixels}px`;
+  // logic reference: https://developer.mozilla.org/en-US/docs/Web/API/TextMetrics/width & https://stackoverflow.com/a/14291586/11183512 & https://stackoverflow.com/questions/58704990/calculate-pixel-width-of-text-without-knowing-font-in-react-javascript
   if (typeof window !== 'undefined') {
     const canvas = document.createElement('canvas');
     const context = canvas.getContext('2d');
@@ -140,7 +266,7 @@ export default function Timeline() {
   const textFW = '600';
   const textFS = { base: 'xl', sm: '2xl', lg: '3xl' };
   return (
-    <List paddingBottom={4}>
+    <List>
       {achievements.map(({ title, children }, index) => {
         return (
           <Fragment key={title}>
@@ -216,7 +342,17 @@ export default function Timeline() {
                         )}
                       </Heading>
                       <Text size="sm" width="full" textAlign={'left'}>
-                        {description}
+                        {description.map(({ text, linkText }, index) =>
+                          linkText === '' ? (
+                            <Box as={'span'} key={index}>
+                              {text}
+                            </Box>
+                          ) : (
+                            <NextLink href={linkText} passHref key={linkText}>
+                              <Link isExternal={true}>{text}</Link>
+                            </NextLink>
+                          )
+                        )}
                       </Text>
                     </VStack>
                   </HStack>

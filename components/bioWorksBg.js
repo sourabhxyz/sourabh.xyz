@@ -31,9 +31,10 @@ export default function BioWorksBg() {
       width={targetWidth}
       // height="593.33"
       viewBox={`0 0 736 80`}
-      onClick={() => console.log(scrollYProgress, yRange)}
+      // onClick={() => console.log(scrollYProgress, yRange)}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
+      transition={{ duration: 1 }}
     >
       <defs>
         <style>
