@@ -71,8 +71,8 @@ export default function Landing() {
 function Hero() {
   const headingFW = '600';
   const headingFS = { base: 'xl', sm: '2xl', lg: '3xl' };
-  const textFW = '500';
-  const textFS = { base: 'md', sm: 'lg', lg: 'xl' };
+  const textFW = '600';
+  const textFS = { base: 'xl', sm: '2xl', lg: '3xl' };
   return (
     <Box
       // w={'auto'} // this is an issue because 1. default is already auto I believe, 2. there is no width of container set.
@@ -112,6 +112,7 @@ function Hero() {
         }}
       ></MotionIcon>
       {/* Need to be very careful here. Increasing left may get text to overflow (basically an issue for long works like Unleashing), ruining the mobile experience. */}
+      {/* ref for motion text using framer: https://brad-carter.medium.com/how-to-animate-a-text-reveal-effect-in-react-with-framer-motion-ae8ddd296f0d */}
       <MotionFlex
         alignItems={'center'}
         justifyContent={'center'}
@@ -241,6 +242,10 @@ function Hero() {
 }
 
 function BioWorks() {
+  const headingFW = '600';
+  const headingFS = { base: 'xl', sm: '2xl', lg: '3xl' };
+  const textFW = '600';
+  const textFS = { base: 'xl', sm: '2xl', lg: '3xl' };
   /* The purpose of following logic is to get height of content */
   const [timeLineHeight, setTimeLineHeight] = useState(0);
   const timeLineRef = useRef(null);
@@ -253,8 +258,6 @@ function BioWorks() {
     // My solution only has one issue: https://stackoverflow.com/a/13546011/11183512 https://stackoverflow.com/questions/13545947/position-absolute-and-parent-height one can easily fix this by putting overflow: 'hidden' but for me it adds another scroll bar (which could be preferrable) but I am using JS solution.
     <Box
       position={'relative'}
-      border="1px"
-      borderColor={'blue'}
       h={timeLineHeight}
       id="bio-works"
       // h="100%"
@@ -279,7 +282,13 @@ function BioWorks() {
         // bgPosition={'center center'}
         // id="findme"
       >
-        <Box position={'absolute'} top={'0px'} left={'0px'} id="ajay">
+        <Box
+          position={'absolute'}
+          bottom={'0px'}
+          left={'0px'}
+          id="ajay"
+          backdropFilter={'blur(10px)'}
+        >
           <BioWorksBg />
         </Box>
         {/* <Icon
@@ -294,8 +303,13 @@ function BioWorks() {
         top={'0px'}
         ref={timeLineRef}
         paddingLeft={'20px'}
-        paddingTop={'60px'}
+        // paddingTop={'60px'}
+        paddingBottom={'85px'}
+        zIndex={'-1'}
       >
+        <Heading fontWeight={headingFW} fontSize={headingFS}>
+          Timeline
+        </Heading>
         {Timeline()}
       </Box>
       {/* <MotionText

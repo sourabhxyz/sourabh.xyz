@@ -302,18 +302,10 @@ export default function Timeline() {
                 spacing={2}
                 textAlign="left"
               >
-                <Heading
-                  // width="full"
-                  size="xs"
-                  textAlign="left"
-                >
+                <Heading width="full" size="xs" textAlign="left">
                   {title}
                 </Heading>
-                <Text
-                  size="sm"
-                  // width="full"
-                  textAlign={'left'}
-                >
+                <Text size="sm" width="full" textAlign={'left'}>
                   {description}
                 </Text>
               </VStack>
