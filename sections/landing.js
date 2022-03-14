@@ -168,7 +168,7 @@ function Hero() {
               position: 'absolute',
               bottom: 1,
               left: 0,
-              bg: 'red.400',
+              bg: 'red.200',
               zIndex: -1,
             }}
           >
@@ -194,7 +194,7 @@ function Hero() {
               position: 'absolute',
               bottom: 1,
               left: 0,
-              bg: 'blue.400',
+              bg: 'blue.200',
               zIndex: -1,
             }}
           >
@@ -307,7 +307,24 @@ function BioWorks() {
         paddingBottom={'85px'}
         zIndex={'-1'}
       >
-        <Heading fontWeight={headingFW} fontSize={headingFS}>
+        <Heading
+          position={'relative'}
+          fontWeight={headingFW}
+          fontSize={headingFS}
+          // borderBottom={1}
+          // borderStyle={'solid'}
+          // borderColor={'gray.200'}
+          _after={{
+            content: "''",
+            width: '120px',
+            height: '30%',
+            position: 'absolute',
+            bottom: 1,
+            left: 0,
+            bgGradient: 'linear(to-r, red.200, blue.200)',
+            zIndex: -1,
+          }}
+        >
           Timeline
         </Heading>
         {Timeline()}
