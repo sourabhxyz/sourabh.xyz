@@ -51,7 +51,7 @@ export default function BioWorksBg() {
               stroke: '#d9666d',
               strokeWidth: 2,
               fill: 'none',
-              pathLength: yRange,
+              pathLength: scrollYProgress,
             }}
             d="m88.027 29.899 600.457-9.889"
           />

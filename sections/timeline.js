@@ -7,274 +7,108 @@ import {
   VStack,
   Heading,
   Text,
+  Link,
 } from '@chakra-ui/react';
-
+import NextLink from 'next/link';
+import { Fragment } from 'react';
 const achievements = [
   {
-    title: 'College Era',
+    title: '2022',
     children: [
       {
-        title: 'First - Joined IIT PKD1',
-        description: 'I am Osome!1',
+        title: [
+          { text: '(Jan) Learned Photoshop & Illustrator', linkText: '' },
+        ],
+        description:
+          'As good product requires good art and being good with these tools allows oneself to express themself better.',
       },
       {
-        title: 'Joined IIT PKD2',
-        description: 'I am Osome!2',
-      },
-      {
-        title: 'Joined IIT PKD3',
-        description: 'I am Osome!3',
-      },
-      {
-        title: 'Joined IIT PKD1',
-        description: 'I am Osome!1',
-      },
-      {
-        title: 'Joined IIT PKD2',
-        description: 'I am Osome!2',
-      },
-      {
-        title: 'Joined IIT PKD3',
-        description: 'I am Osome!3',
-      },
-      {
-        title: 'Joined IIT PKD1',
-        description: 'I am Osome!1',
-      },
-      {
-        title: 'Joined IIT PKD2',
-        description: 'I am Osome!2',
-      },
-      {
-        title: 'Joined IIT PKD3',
-        description: 'I am Osome!3',
-      },
-      {
-        title: 'Joined IIT PKD1',
-        description: 'I am Osome!1',
-      },
-      {
-        title: 'Joined IIT PKD2',
-        description: 'I am Osome!2',
-      },
-      {
-        title: 'Joined IIT PKD3',
-        description: 'I am Osome!3',
-      },
-      {
-        title: 'Joined IIT PKD1',
-        description: 'I am Osome!1',
-      },
-      {
-        title: 'Joined IIT PKD2',
-        description: 'I am Osome!2',
-      },
-      {
-        title: 'Joined IIT PKD3',
-        description: 'I am Osome!3',
-      },
-      {
-        title: 'Joined IIT PKD1',
-        description: 'I am Osome!1',
+        title: [
+          { text: '(Feb - Mar) Created ', linkText: '' },
+          { text: 'sourabh.xyz', linkText: 'sourabh.xyz' },
+        ],
+        description:
+          'A site for all my relevant info. Created using Next.js, Chakra-UI, Framer motion. Github link can be found here',
       },
     ],
   },
   {
-    title: 'Something',
+    title: '2020-2021',
     children: [
       {
-        title: 'Joined IIT PKD2',
-        description: 'I am Osome!2',
+        title: [{ text: 'Started Crypto mining business', linkText: '' }],
+        description:
+          'First I used to cash out my mined Ethereum & other crypto assets but then after slowly realised their potential, I had them just left as it is. After learning about all the different protocols',
       },
       {
-        title: 'Joined IIT PKD3',
-        description: 'I am Osome!3',
-      },
-      {
-        title: 'Joined IIT PKD1',
-        description: 'I am Osome!1',
-      },
-      {
-        title: 'Joined IIT PKD2',
-        description: 'I am Osome!2',
-      },
-      {
-        title: 'Joined IIT PKD3',
-        description: 'I am Osome!3',
-      },
-      {
-        title: 'Joined IIT PKD1',
-        description: 'I am Osome!1',
-      },
-      {
-        title: 'Joined IIT PKD2',
-        description: 'I am Osome!2',
-      },
-      {
-        title: 'Joined IIT PKD3',
-        description: 'I am Osome!3',
-      },
-      {
-        title: 'Joined IIT PKD1',
-        description: 'I am Osome!1',
+        title: [
+          {
+            text: 'Learned web development & smart contract platforms',
+            linkText: '',
+          },
+        ],
+        description: 'sldkfj',
       },
     ],
   },
-
   {
-    title: 'Mining Era',
+    title: 'College Era (2016-2020)',
     children: [
       {
-        title: 'Joined IIT PKD2',
+        title: [
+          {
+            text: 'Started B. Tech in Computer Science from IIT Palakkad',
+            linkText: '',
+          },
+        ],
+        description:
+          "Secured computer science stream in one of India's premium technology schools by being in top 0.4%",
+      },
+      {
+        title: [
+          {
+            text: 'Secured all India rank 20 in preliminary ICPC 2018',
+            linkText: '',
+          },
+        ],
+        description:
+          'See standing of our team, "team_light" here: https://www.codechef.com/rankings/ACMIND18',
+      },
+      {
+        title: [
+          {
+            text: 'Secured all India rank 86 among ~4k participants in competitive programming contest conducted by Johnson & Johnson',
+            linkText: '',
+          },
+        ],
         description: 'I am Osome!2',
       },
       {
-        title: 'Joined IIT PKD3',
-        description: 'I am Osome!3',
+        title: [
+          {
+            text: 'Selected by the Ministry of Youth Affairs & Sports, Govt. of India among 200 students to represent India as a youth delegate in the "Indian Youth Delegation to China - 2018"',
+            linkText: '',
+          },
+        ],
+        description: 'Fun seeing their culture',
       },
       {
-        title: 'Joined IIT PKD1',
-        description: 'I am Osome!1',
+        title: [
+          { text: 'Internship at VMware (formely Avi Networks)', linkText: '' },
+        ],
+        description:
+          'I upgraded logging packages to Go language (5x speedup) and did automation using Terraform and Ansible',
       },
       {
-        title: 'Joined IIT PKD2',
-        description: 'I am Osome!2',
+        title: [
+          { text: 'Topped my stream & became gold medalist 🥇', linkText: '' },
+        ],
+        description:
+          'By being consistently good with academics, I secured highest CGPA in my branch and thus received Gold medal 🥇',
       },
       {
-        title: 'Joined IIT PKD3',
-        description: 'I am Osome!3',
-      },
-      {
-        title: 'Joined IIT PKD1',
-        description: 'I am Osome!1',
-      },
-      {
-        title: 'Joined IIT PKD2',
-        description: 'I am Osome!2',
-      },
-      {
-        title: 'Joined IIT PKD3',
-        description: 'I am Osome!3',
-      },
-      {
-        title: 'Joined IIT PKD1',
-        description: 'I am Osome!1',
-      },
-      {
-        title: 'Joined IIT PKD2',
-        description: 'I am Osome!2',
-      },
-      {
-        title: 'Joined IIT PKD3',
-        description: 'I am Osome!3',
-      },
-      {
-        title: 'Joined IIT PKD1',
-        description: 'I am Osome!1',
-      },
-      {
-        title: 'Joined IIT PKD2',
-        description: 'I am Osome!2',
-      },
-      {
-        title: 'Joined IIT PKD3',
-        description: 'I am Osome!3',
-      },
-      {
-        title: 'Joined IIT PKD1',
-        description: 'I am Osome!1',
-      },
-      {
-        title: 'Joined IIT PKD2',
-        description: 'I am Osome!2',
-      },
-      {
-        title: 'Joined IIT PKD3',
-        description: 'I am Osome!3',
-      },
-      {
-        title: 'Joined IIT PKD1',
-        description: 'I am Osome!1',
-      },
-      {
-        title: 'Joined IIT PKD2',
-        description: 'I am Osome!2',
-      },
-      {
-        title: 'Joined IIT PKD3',
-        description: 'I am Osome!3',
-      },
-      {
-        title: 'Joined IIT PKD1',
-        description: 'I am Osome!1',
-      },
-      {
-        title: 'Joined IIT PKD2',
-        description: 'I am Osome!2',
-      },
-      {
-        title: 'Joined IIT PKD3',
-        description: 'I am Osome!3',
-      },
-      {
-        title: 'Joined IIT PKD1',
-        description: 'I am Osome!1',
-      },
-      {
-        title: 'Joined IIT PKD2',
-        description: 'I am Osome!2',
-      },
-      {
-        title: 'Joined IIT PKD3',
-        description: 'I am Osome!3',
-      },
-      {
-        title: 'Joined IIT PKD1',
-        description: 'I am Osome!1',
-      },
-      {
-        title: 'Joined IIT PKD2',
-        description: 'I am Osome!2',
-      },
-      {
-        title: 'Joined IIT PKD3',
-        description: 'I am Osome!3',
-      },
-      {
-        title: 'Joined IIT PKD1',
-        description: 'I am Osome!1',
-      },
-      {
-        title: 'Joined IIT PKD2',
-        description: 'I am Osome!2',
-      },
-      {
-        title: 'Joined IIT PKD3',
-        description: 'I am Osome!3',
-      },
-      {
-        title: 'Joined IIT PKD1',
-        description: 'I am Osome!1',
-      },
-      {
-        title: 'Joined IIT PKD2',
-        description: 'I am Osome!2',
-      },
-      {
-        title: 'Joined IIT PKD3',
-        description: 'I am Osome!3',
-      },
-      {
-        title: 'Joined IIT PKD1',
-        description: 'I am Osome!1',
-      },
-      {
-        title: 'Joined IIT PKD2',
-        description: 'I am Osome!2',
-      },
-      {
-        title: 'Last - Joined IIT PKD3',
-        description: 'I am Osome!3',
+        title: [{ text: 'BTP Appreciation award', linkText: '' }],
+        description: 'hello!',
       },
     ],
   },
@@ -309,7 +143,7 @@ export default function Timeline() {
     <List paddingBottom={4}>
       {achievements.map(({ title, children }, index) => {
         return (
-          <>
+          <Fragment key={title}>
             <Heading
               fontSize={headingFS}
               paddingTop={'30px'}
@@ -369,7 +203,17 @@ export default function Timeline() {
                       textAlign="left"
                     >
                       <Heading width="full" size="xs" textAlign="left">
-                        {title}
+                        {title.map(({ text, linkText }, index) =>
+                          linkText === '' ? (
+                            <Box as={'span'} key={index}>
+                              {text}
+                            </Box>
+                          ) : (
+                            <NextLink href={linkText} passHref key={linkText}>
+                              <Link isExternal={true}>{text}</Link>
+                            </NextLink>
+                          )
+                        )}
                       </Heading>
                       <Text size="sm" width="full" textAlign={'left'}>
                         {description}
@@ -379,7 +223,7 @@ export default function Timeline() {
                 </ListItem>
               );
             })}
-          </>
+          </Fragment>
         );
       })}
     </List>

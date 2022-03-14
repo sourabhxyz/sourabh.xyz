@@ -72,7 +72,7 @@ function Hero() {
   const headingFW = '600';
   const headingFS = { base: 'xl', sm: '2xl', lg: '3xl' };
   const textFW = '600';
-  const textFS = { base: 'xl', sm: '2xl', lg: '3xl' };
+  const textFS = { base: 'sm', sm: 'md', lg: 'lg' };
   return (
     <Box
       // w={'auto'} // this is an issue because 1. default is already auto I believe, 2. there is no width of container set.
@@ -125,13 +125,27 @@ function Hero() {
         // h={`calc(100vh - ${navHeight})`}
       >
         <HStack
-          backdropFilter={'blur(7px)'}
+          backdropFilter={'blur(10px)'}
           borderRadius="2xl"
           p="10px"
           // initial={{ opacity: 0, y: '-250px' }}
           // animate={{ opacity: 1, y: '0px' }}
         >
-          <MotionText fontWeight={headingFW} fontSize={headingFS}>
+          <MotionText
+            fontWeight={headingFW}
+            fontSize={headingFS}
+            position={'relative'}
+            _after={{
+              content: "''",
+              width: 'full',
+              height: '30%',
+              position: 'absolute',
+              bottom: 1,
+              left: 0,
+              bg: 'red.200',
+              zIndex: -1,
+            }}
+          >
             {'Swasti!'.split('').map((char, index) => {
               return (
                 <MotionBox
@@ -168,7 +182,7 @@ function Hero() {
               position: 'absolute',
               bottom: 1,
               left: 0,
-              bg: 'red.200',
+              bg: 'blue.200',
               zIndex: -1,
             }}
           >
@@ -181,24 +195,10 @@ function Hero() {
         </HStack>
         <HStack backdropFilter={'blur(5px)'} borderRadius="xl" p="10px">
           <MotionText fontWeight={textFW} fontSize={textFS} variants={letter}>
-            A
+            Full stack
           </MotionText>
-          <Text
-            position={'relative'}
-            fontWeight={textFW}
-            fontSize={textFS}
-            _after={{
-              content: "''",
-              width: 'full',
-              height: '30%',
-              position: 'absolute',
-              bottom: 1,
-              left: 0,
-              bg: 'blue.200',
-              zIndex: -1,
-            }}
-          >
-            {'Web3'.split('').map((char, index) => {
+          <Text fontWeight={textFW} fontSize={textFS}>
+            {'web3'.split('').map((char, index) => {
               return (
                 <MotionBox
                   as={'span'}
@@ -211,7 +211,7 @@ function Hero() {
             })}
           </Text>
           <Text fontWeight={textFW} fontSize={textFS}>
-            {'Developer'.split('').map((char, index) => {
+            {'developer'.split('').map((char, index) => {
               return (
                 <MotionBox
                   as={'span'}
