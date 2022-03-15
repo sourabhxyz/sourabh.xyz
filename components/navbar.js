@@ -34,7 +34,9 @@ import {
   ChevronUpIcon,
 } from '@chakra-ui/icons';
 
-import { FaGithub, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { FaGithub, FaTwitter, FaYoutube, FaTelegram } from 'react-icons/fa';
+import { GrMail } from 'react-icons/gr';
+import { MdMail } from 'react-icons/md';
 
 const NAV_ITEMS = [
   {
@@ -44,6 +46,26 @@ const NAV_ITEMS = [
   {
     label: 'Timeline',
     href: '/#timeline',
+  },
+  {
+    label: 'Contact',
+    href: 'none',
+    children: [
+      {
+        label: 'Mail',
+        icon: MdMail,
+        iconColor: 'black',
+        subLabel: 'Mail',
+        href: 'mailto:swasti@sourabh.xyz',
+      },
+      {
+        label: 'Telegram',
+        icon: FaTelegram,
+        iconColor: '#0088cc',
+        subLabel: 'Telegram',
+        href: 'https://telegram.me/xyzsourabh',
+      },
+    ],
   },
   {
     label: 'Social',
