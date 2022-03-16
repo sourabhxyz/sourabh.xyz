@@ -1,5 +1,3 @@
-// Motivation: https://dexpools.com/
-
 import {
   Container,
   Text,
@@ -7,14 +5,12 @@ import {
   Heading,
   Icon,
   Flex,
-  Button,
   HStack,
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import Navbar from '../components/navbar';
 import { navHeight } from '../globalVars';
 import Timeline from './timeline';
-import { useState, useEffect, useRef } from 'react';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import HeroBg from '../components/heroBg';
 import BioWorksBg from '../components/bioWorksBg';
@@ -22,7 +18,6 @@ import BioWorksBg from '../components/bioWorksBg';
 const MotionContainer = motion(Container);
 const MotionIcon = motion(Icon);
 const MotionBox = motion(Box);
-const MotionHStack = motion(HStack);
 const containerSize = '768px'; // container.md
 const MotionText = motion(Text);
 const MotionFlex = motion(Flex);
@@ -49,15 +44,11 @@ const letter = {
 export default function Landing() {
   return (
     /* 
-    My initial animation of 
-      c
+    My initial animation of x moving from 100% to 0
     is causing issues for mobile screens where width then becomes 50%. Discussion here https://stackoverflow.com/questions/68911663/framer-motion-animation-causes-website-to-expand & here https://github.com/framer/motion/issues/987. Instead of applying there fixes now, I have decided to see it once the site is complete. 
     */
     <MotionContainer
       maxW={containerSize}
-      // overflow={'hidden'}
-      // position={'relative'}
-      // bg="white"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
     >
@@ -77,15 +68,6 @@ function Hero() {
     <Box
       // w={'auto'} // this is an issue because 1. default is already auto I believe, 2. there is no width of container set.
       h={`calc(100vh - ${navHeight})`} // since height is fixed here, if our svg requires more height, it won't be able to take it, i.e., there won't be any overflow.
-      // bgImage={'url(/heroBg.svg)'}
-      // https://stackoverflow.com/a/30679082/11183512
-      // bgSize={'cover'}
-      // https://developer.mozilla.org/en-US/docs/Web/CSS/background-size
-      // bgSize={`auto calc(100vh - ${navHeight})`}
-      // 'no-repeat' is not needed when 'bgSize' is 'cover'.
-      // bgRepeat={'no-repeat'}
-      // need bgPosition as explained here: https://www.youtube.com/watch?v=3T_Jy1CqH9k when setting 'bgSize' as 'cover'.
-      // bgPosition={'bottom left'}
       position={'relative'}
     >
       <Box position={'absolute'} bottom={'0px'} left={'0px'} zIndex={'-1'}>
@@ -111,7 +93,6 @@ function Hero() {
           delay: '3',
         }}
       ></MotionIcon>
-      {/* Need to be very careful here. Increasing left may get text to overflow (basically an issue for long works like Unleashing), ruining the mobile experience. */}
       {/* ref for motion text using framer: https://brad-carter.medium.com/how-to-animate-a-text-reveal-effect-in-react-with-framer-motion-ae8ddd296f0d */}
       <MotionFlex
         alignItems={'center'}
@@ -122,15 +103,8 @@ function Hero() {
         variants={sentence}
         initial="hidden"
         animate="visible"
-        // h={`calc(100vh - ${navHeight})`}
       >
-        <HStack
-          backdropFilter={'blur(10px)'}
-          borderRadius="2xl"
-          p="10px"
-          // initial={{ opacity: 0, y: '-250px' }}
-          // animate={{ opacity: 1, y: '0px' }}
-        >
+        <HStack backdropFilter={'blur(10px)'} borderRadius="2xl" p="10px">
           <MotionText
             fontWeight={headingFW}
             fontSize={headingFS}
@@ -148,11 +122,7 @@ function Hero() {
           >
             {'Swasti!'.split('').map((char, index) => {
               return (
-                <MotionBox
-                  as={'span'}
-                  key={char + '-' + index}
-                  variants={letter}
-                >
+                <MotionBox as={'span'} key={index} variants={letter}>
                   {char}
                 </MotionBox>
               );
@@ -161,11 +131,7 @@ function Hero() {
           <MotionText fontWeight={headingFW} fontSize={headingFS}>
             {'Meet'.split('').map((char, index) => {
               return (
-                <MotionBox
-                  as={'span'}
-                  key={char + '-' + index}
-                  variants={letter}
-                >
+                <MotionBox as={'span'} key={index} variants={letter}>
                   {char}
                 </MotionBox>
               );
@@ -187,7 +153,7 @@ function Hero() {
             }}
           >
             {'Sourabh'.split('').map((char, index) => (
-              <MotionBox as={'span'} key={char + '-' + index} variants={letter}>
+              <MotionBox as={'span'} key={index} variants={letter}>
                 {char}
               </MotionBox>
             ))}
@@ -200,11 +166,7 @@ function Hero() {
           <Text fontWeight={textFW} fontSize={textFS}>
             {'web3'.split('').map((char, index) => {
               return (
-                <MotionBox
-                  as={'span'}
-                  key={char + '-' + index}
-                  variants={letter}
-                >
+                <MotionBox as={'span'} key={index} variants={letter}>
                   {char}
                 </MotionBox>
               );
@@ -213,29 +175,13 @@ function Hero() {
           <Text fontWeight={textFW} fontSize={textFS}>
             {'developer'.split('').map((char, index) => {
               return (
-                <MotionBox
-                  as={'span'}
-                  key={char + '-' + index}
-                  variants={letter}
-                >
+                <MotionBox as={'span'} key={index} variants={letter}>
                   {char}
                 </MotionBox>
               );
             })}
           </Text>
         </HStack>
-        {/* <Heading
-          fontFamily="Faster One"
-          // this overflowwrap won't work with w='auto'
-          overflowWrap="break-word"
-          w="full"
-          // margin will increase width but padding won't so use padding.
-          // paddingLeft={'100px'}
-          textAlign={'center'}
-        >
-          Unleashing Defi!
-        </Heading>
-        <Text textAlign={'center'}>Meet Web3 Developer</Text> */}
       </MotionFlex>
     </Box>
   );
@@ -246,8 +192,6 @@ function BioWorks() {
   const headingFS = { base: 'xl', sm: '2xl', lg: '3xl' };
   return (
     // to see how to have full height relative background see: https://github.com/sourabhxyz/sourabh.xyz/commit/772b43eedd2ff994c750ed8e3027c7adbf36bcf9 there I also have logic to get height of container. Since I don't need full background, also I can't have this footer as full background as then text will go over it. Thanks to https://elad.medium.com/css-position-sticky-how-it-really-works-54cd01dc2d46 for help with bottom sticky.
-    // an aliter could be background-attachment. https://stackoverflow.com/a/36532574/11183512 but I avoided it as it isn't supported in safari. It might have a workaround though: https://css-tricks.com/the-fixed-background-attachment-hack/ but I am happy with my solution.
-    // My solution only has one issue: https://stackoverflow.com/a/13546011/11183512 https://stackoverflow.com/questions/13545947/position-absolute-and-parent-height one can easily fix this by putting overflow: 'hidden' but for me it adds another scroll bar (which could be preferrable) but I am using JS solution.
     <Box position={'relative'} id="timeline" paddingTop={navHeight}>
       <Box paddingLeft={'20px'}>
         <Heading

@@ -239,17 +239,6 @@ const achievements = [
   },
 ];
 function getPixel(str) {
-  // let whiteSpaceCount = 0;
-  // str.split('').map((ch) => {
-  //   if (ch === ' ') {
-  //     whiteSpaceCount = whiteSpaceCount + 1;
-  //   }
-  // });
-  // // characters need more pixels whereas whitespace requires less.
-  // const pixels =
-  //   (str.length - whiteSpaceCount) * (100 / 10) + whiteSpaceCount * (100 / 10);
-  // console.log(str, ' ', whiteSpaceCount, ' ', pixels);
-  // return `${pixels}px`;
   // logic reference: https://developer.mozilla.org/en-US/docs/Web/API/TextMetrics/width & https://stackoverflow.com/a/14291586/11183512 & https://stackoverflow.com/questions/58704990/calculate-pixel-width-of-text-without-knowing-font-in-react-javascript
   if (typeof window !== 'undefined') {
     const canvas = document.createElement('canvas');
@@ -261,17 +250,13 @@ function getPixel(str) {
 }
 
 export default function Timeline() {
-  const headingFW = '600';
-  const headingFS = { base: 'sm', sm: 'md', lg: 'lg' };
-  const textFW = '600';
-  const textFS = { base: 'xl', sm: '2xl', lg: '3xl' };
   return (
     <List>
       {achievements.map(({ title, children }, index) => {
         return (
-          <Fragment key={title}>
+          <Fragment key={index}>
             <Heading
-              fontSize={headingFS}
+              fontSize={{ base: 'sm', sm: 'md', lg: 'lg' }}
               paddingTop={'30px'}
               position={'relative'}
               _after={{
@@ -294,7 +279,7 @@ export default function Timeline() {
 
               return (
                 <ListItem
-                  key={title}
+                  key={index}
                   zIndex={1}
                   paddingTop={4}
                   position="relative"
@@ -335,7 +320,7 @@ export default function Timeline() {
                               {text}
                             </Box>
                           ) : (
-                            <NextLink href={linkText} passHref key={linkText}>
+                            <NextLink href={linkText} passHref key={index}>
                               <Link isExternal={true}>{text}</Link>
                             </NextLink>
                           )
@@ -348,7 +333,7 @@ export default function Timeline() {
                               {text}
                             </Box>
                           ) : (
-                            <NextLink href={linkText} passHref key={linkText}>
+                            <NextLink href={linkText} passHref key={index}>
                               <Link isExternal={true}>{text}</Link>
                             </NextLink>
                           )

@@ -151,7 +151,6 @@ const DesktopNav = () => {
     bgGradient: 'linear(to-r, red, blue)',
     bgClip: 'text',
   };
-  console.log(router.asPath);
   return (
     <HStack spacing={4}>
       {NAV_ITEMS.map((navItem) => (

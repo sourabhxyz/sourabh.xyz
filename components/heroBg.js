@@ -32,7 +32,6 @@ export default function HeroBg() {
     window.addEventListener('resize', handleWindowResize);
     return () => window.removeEventListener('resize', handleWindowResize);
   }, []);
-  console.log(deviceWidth, deviceHeight);
   const targetHeight =
     deviceHeight - Number(navHeight.substring(0, navHeight.length - 2));
   const imageWidth = (targetHeight / 593.33) * 736;
