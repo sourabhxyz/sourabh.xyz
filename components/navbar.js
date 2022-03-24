@@ -35,8 +35,19 @@ import {
 } from '@chakra-ui/icons';
 
 import { FaGithub, FaTwitter, FaYoutube, FaTelegram } from 'react-icons/fa';
-import { GrMail } from 'react-icons/gr';
 import { MdMail } from 'react-icons/md';
+
+const baseStyle = {
+  p: 2,
+  color: 'black',
+  fontWeight: 400,
+  letterSpacing: 'wide',
+};
+
+const activeStyle = {
+  bgGradient: 'linear(to-r, red, blue)',
+  bgClip: 'text',
+};
 
 const NAV_ITEMS = [
   {
@@ -147,10 +158,6 @@ export default function Navbar() {
 const DesktopNav = () => {
   const popoverContentBgColor = 'white';
   const router = useRouter();
-  const activeStyle = {
-    bgGradient: 'linear(to-r, red, blue)',
-    bgClip: 'text',
-  };
   return (
     <HStack spacing={4}>
       {NAV_ITEMS.map((navItem) => (
@@ -161,33 +168,18 @@ const DesktopNav = () => {
           >
             <PopoverTrigger>
               {navItem.href === 'none' ? (
-                <Text
-                  p={2}
-                  color={'black'}
-                  _hover={{
-                    bgGradient: 'linear(to-r, red, blue)',
-                    bgClip: 'text',
-                  }}
-                >
+                <Text sx={baseStyle} _hover={activeStyle}>
                   {navItem.label}
                 </Text>
               ) : (
                 <NextLink href={navItem.href} passHref>
                   <Link
-                    p={2}
-                    // fontSize={'sm'}
-                    // fontWeight={500}
-                    color={'black'}
-                    bgGradient={
+                    sx={
                       router.asPath === navItem.href
-                        ? 'linear(to-r, red, blue)'
-                        : ''
+                        ? { ...baseStyle, ...activeStyle }
+                        : baseStyle
                     }
-                    bgClip={router.asPath === navItem.href ? 'text' : ''}
-                    _hover={{
-                      bgGradient: 'linear(to-r, red, blue)',
-                      bgClip: 'text',
-                    }}
+                    _hover={activeStyle}
                   >
                     {navItem.label}
                   </Link>
@@ -225,11 +217,7 @@ function SubNav(child) {
       >
         <Flex direction={'column'} alignItems={'center'} p={2}>
           <Icon as={child.icon} boxSize={'1.5em'} color={child.iconColor} />
-          <Text
-            fontSize={'sm'}
-            bgGradient={subNavHover ? 'linear(to-r, red, blue)' : ''}
-            bgClip={subNavHover ? 'text' : ''}
-          >
+          <Text fontSize={'sm'} sx={subNavHover ? activeStyle : {}}>
             {child.subLabel}
           </Text>
         </Flex>
@@ -254,25 +242,14 @@ function MobileSubNav(navItem) {
           justifyContent={'space-between'}
           alignItems={'center'}
         >
-          <Text
-            bgGradient={navHover ? 'linear(to-r, red, blue)' : ''}
-            bgClip={navHover ? 'text' : ''}
-          >
-            {navItem.label}
-          </Text>
+          <Text sx={navHover ? activeStyle : {}}>{navItem.label}</Text>
           <Icon as={collapseOpen ? ChevronUpIcon : ChevronDownIcon} />
         </Flex>
       ) : (
         <NextLink href={navItem.href} passHref>
           <Link
-            bgGradient={
-              router.asPath === navItem.href ? 'linear(to-r, red, blue)' : ''
-            }
-            bgClip={router.asPath === navItem.href ? 'text' : ''}
-            _hover={{
-              bgGradient: 'linear(to-r, red, blue)',
-              bgClip: 'text',
-            }}
+            sx={router.asPath === navItem.href ? activeStyle : {}}
+            _hover={activeStyle}
           >
             {navItem.label}
           </Link>
