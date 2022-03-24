@@ -52,11 +52,11 @@ const activeStyle = {
 const NAV_ITEMS = [
   {
     label: 'Home',
-    href: '/',
+    href: '',
   },
   {
     label: 'Timeline',
-    href: '/#timeline',
+    href: '#timeline',
   },
   {
     label: 'Contact',
@@ -137,7 +137,7 @@ export default function Navbar() {
       justify={{ base: 'space-between', sm: 'none' }}
     >
       {/* Logo */}
-      <NextLink href="/" passHref>
+      <NextLink href="" passHref>
         <Link
           onMouseEnter={() => setLogoHover(true)}
           onMouseLeave={() => setLogoHover(false)}

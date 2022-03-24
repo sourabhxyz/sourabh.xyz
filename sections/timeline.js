@@ -123,7 +123,7 @@ const achievements = [
         ],
         description: [
           {
-            text: "By luck as I was selling my personal system, I came to realize about GPU mining and started amassing as many GPU's as I could. First I used to cash out my mined Ethereum & other crypto assets but then after slowly realising the potential of this industry, I started investing in crypto assets. Earlier I was of the opinion to amass as much Ethereum as I can but being in this field, I came to explore various DeFi products & protocols, which showed me how nascent is this space & thus I got inclined towards being developer here. And by the end of 2021, I made my decision to enter this field with full force.",
+            text: "By luck as I was selling my personal system, I came to realize about GPU mining and started amassing as many GPU's as I could. First I used to cash out my mined Ethereum & other crypto assets but then after slowly realising the potential of this technology, I started investing in crypto assets. Earlier I was of the opinion to gather as much Ethereum as I can but being in this field, I came to explore various DeFi protocols, which showed me how nascent is this space, their potential & thus I got inclined towards being developer here. And by the end of 2021, I made my decision to enter this field with full force.",
             linkText: '',
           },
         ],
@@ -136,7 +136,7 @@ const achievements = [
       {
         title: [
           {
-            text: 'Topped my discipline & became gold medalist 🥇',
+            text: 'Topped Computer Science discipline & became gold medalist 🥇',
             linkText: '',
           },
         ],
@@ -205,8 +205,12 @@ const achievements = [
           },
         ],
         description: [
-          { text: 'My report for the event ', linkText: '' },
-          { text: 'here', linkText: '' },
+          { text: 'Wrote report for the event ', linkText: '' },
+          {
+            text: 'here',
+            linkText:
+              'https://www.odrive.com/s/e90e274f-6f34-466e-8a08-b8df892bcf4d-623c72e7',
+          },
           { text: ' and certificate ', linkText: '' },
           {
             text: 'here',
@@ -314,7 +318,6 @@ export default function Timeline() {
             {children.map(({ title, description }, index) => {
               const isLastElement = index === children.length - 1;
               const isFirstElement = index === 0;
-
               return (
                 <ListItem
                   key={index}
@@ -322,16 +325,18 @@ export default function Timeline() {
                   paddingTop={4}
                   position="relative"
                 >
-                  <Flex
-                    left="5px"
-                    top={isFirstElement ? 5 : 0}
-                    width="2.5px"
-                    bottom={0}
-                    height={isLastElement ? 5 : 'unset'}
-                    zIndex={-1}
-                    position="absolute"
-                    backgroundColor="gray.100"
-                  />
+                  {children.length > 1 ? (
+                    <Flex
+                      left="5px"
+                      top={isFirstElement ? 5 : 0}
+                      width="2.5px"
+                      bottom={0}
+                      height={isLastElement ? 5 : 'unset'}
+                      zIndex={-1}
+                      position="absolute"
+                      backgroundColor="gray.100"
+                    />
+                  ) : null}
 
                   <HStack
                     // width="full"
