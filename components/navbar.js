@@ -238,11 +238,68 @@ function SubNav(child) {
   );
 }
 
-function MobileNav() {
-  const { isOpen, onToggle } = useDisclosure();
+function MobileSubNav(navItem) {
   const router = useRouter();
   const [collapseOpen, setCollapseOpen] = useState(false);
   const [navHover, setNavHover] = useState(false);
+  return (
+    <Box key={navItem.label}>
+      {navItem.children ? (
+        <Flex
+          onClick={() =>
+            collapseOpen ? setCollapseOpen(false) : setCollapseOpen(true)
+          }
+          onMouseEnter={() => setNavHover(true)}
+          onMouseLeave={() => setNavHover(false)}
+          justifyContent={'space-between'}
+          alignItems={'center'}
+        >
+          <Text
+            bgGradient={navHover ? 'linear(to-r, red, blue)' : ''}
+            bgClip={navHover ? 'text' : ''}
+          >
+            {navItem.label}
+          </Text>
+          <Icon as={collapseOpen ? ChevronUpIcon : ChevronDownIcon} />
+        </Flex>
+      ) : (
+        <NextLink href={navItem.href} passHref>
+          <Link
+            bgGradient={
+              router.asPath === navItem.href ? 'linear(to-r, red, blue)' : ''
+            }
+            bgClip={router.asPath === navItem.href ? 'text' : ''}
+            _hover={{
+              bgGradient: 'linear(to-r, red, blue)',
+              bgClip: 'text',
+            }}
+          >
+            {navItem.label}
+          </Link>
+        </NextLink>
+      )}
+      {navItem.children && (
+        // documentation here: https://chakra-ui.com/docs/components/other/transitions
+        <Collapse in={collapseOpen} animateOpacity>
+          <VStack
+            ml={2}
+            borderLeft={1}
+            borderStyle={'solid'}
+            borderColor={'gray.200'}
+            align={'start'}
+            pl={3}
+            spacing={0}
+          >
+            {navItem.children.map((child) => SubNav(child))}
+          </VStack>
+        </Collapse>
+      )}
+    </Box>
+  );
+}
+
+function MobileNav() {
+  const { isOpen, onToggle } = useDisclosure();
   return (
     <Popover
       trigger={'click'}
@@ -266,61 +323,7 @@ function MobileNav() {
         w={'185px'}
         p={2}
       >
-        {NAV_ITEMS.map((navItem) => (
-          <Box key={navItem.label}>
-            {navItem.children ? (
-              <Flex
-                onClick={() =>
-                  collapseOpen ? setCollapseOpen(false) : setCollapseOpen(true)
-                }
-                onMouseEnter={() => setNavHover(true)}
-                onMouseLeave={() => setNavHover(false)}
-                justifyContent={'space-between'}
-              >
-                <Text
-                  bgGradient={navHover ? 'linear(to-r, red, blue)' : ''}
-                  bgClip={navHover ? 'text' : ''}
-                >
-                  {navItem.label}
-                </Text>
-                <Icon as={collapseOpen ? ChevronUpIcon : ChevronDownIcon} />
-              </Flex>
-            ) : (
-              <NextLink href={navItem.href} passHref>
-                <Link
-                  bgGradient={
-                    router.asPath === navItem.href
-                      ? 'linear(to-r, red, blue)'
-                      : ''
-                  }
-                  bgClip={router.asPath === navItem.href ? 'text' : ''}
-                  _hover={{
-                    bgGradient: 'linear(to-r, red, blue)',
-                    bgClip: 'text',
-                  }}
-                >
-                  {navItem.label}
-                </Link>
-              </NextLink>
-            )}
-            {navItem.children && (
-              // documentation here: https://chakra-ui.com/docs/components/other/transitions
-              <Collapse in={collapseOpen} animateOpacity>
-                <VStack
-                  ml={2}
-                  borderLeft={1}
-                  borderStyle={'solid'}
-                  borderColor={'gray.200'}
-                  align={'start'}
-                  pl={3}
-                  spacing={0}
-                >
-                  {navItem.children.map((child) => SubNav(child))}
-                </VStack>
-              </Collapse>
-            )}
-          </Box>
-        ))}
+        {NAV_ITEMS.map((navItem) => MobileSubNav(navItem))}
       </PopoverContent>
     </Popover>
   );
