@@ -11,26 +11,25 @@ import {
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import { Fragment } from 'react';
+
+const fullStop = {
+  text: '.',
+  linkText: '',
+};
+
 const achievements = [
   {
     title: '2022',
     children: [
       {
         title: [
-          { text: '(Jan) Learned Photoshop & Illustrator 🎨', linkText: '' },
+          { text: '(Currently) Working on ', linkText: '' },
+          { text: 'prakash.love', linkText: 'https://prakash.love' },
+          fullStop,
         ],
         description: [
           {
-            text: 'As good product requires good art. Also being good with these tools allows one to express themself better. I created all the art of this site myself. See my first NFT ',
-            linkText: '',
-          },
-          {
-            text: 'here',
-            linkText:
-              'https://opensea.io/assets/matic/0x2953399124f0cbb46d2cbacd8a89cf0599974963/106304303023789920371752653475848605360782709816354342763386990413081208684545',
-          },
-          {
-            text: '.',
+            text: 'One place website to get all available information of the personality I revere the most.',
             linkText: '',
           },
         ],
@@ -73,23 +72,27 @@ const achievements = [
             text: 'here',
             linkText: 'https://github.com/sourabhxyz/sourabh.xyz',
           },
-          {
-            text: '.',
-            linkText: '',
-          },
+          fullStop,
         ],
       },
       {
         title: [
-          { text: '(Currently) Working on ', linkText: '' },
-          { text: 'prakash.love', linkText: 'https://prakash.love' },
-          { text: '.', linkText: '' },
+          { text: '(Jan) Learned Photoshop & Illustrator 🎨', linkText: '' },
         ],
         description: [
           {
-            text: 'One place website to get all available information of the personality I revere the most.',
+            text: 'As good product requires good art. Also being good with these tools allows one to express themself better. Created all the art of this site myself.',
             linkText: '',
           },
+          // {
+          //   text: 'here',
+          //   linkText:
+          //     'https://opensea.io/assets/matic/0x2953399124f0cbb46d2cbacd8a89cf0599974963/106304303023789920371752653475848605360782709816354342763386990413081208684545',
+          // },
+          // {
+          //   text: '.',
+          //   linkText: '',
+          // },
         ],
       },
     ],
@@ -97,20 +100,20 @@ const achievements = [
   {
     title: '2020-2021',
     children: [
-      {
-        title: [
-          {
-            text: 'Prepared for Indian Civil Service Exam',
-            linkText: '',
-          },
-        ],
-        description: [
-          {
-            text: "Coming from a business family background, I didn't require job and thus wanted to explore for this exam. But... (see below event)",
-            linkText: '',
-          },
-        ],
-      },
+      // {
+      //   title: [
+      //     {
+      //       text: 'Prepared for Indian Civil Service Exam',
+      //       linkText: '',
+      //     },
+      //   ],
+      //   description: [
+      //     {
+      //       text: "Coming from a business family background, I didn't require job and thus wanted to explore for this exam. But... (see below event)",
+      //       linkText: '',
+      //     },
+      //   ],
+      // },
       {
         title: [
           {
@@ -128,22 +131,92 @@ const achievements = [
     ],
   },
   {
-    title: 'College Era (2016-2020)',
+    title: 'College Era (2016-2020) @ IIT Palakkad',
     children: [
       {
         title: [
           {
-            text: 'Started B. Tech in Computer Science from IIT Palakkad',
+            text: 'Topped my discipline & became gold medalist 🥇',
             linkText: '',
           },
         ],
         description: [
           {
-            text: "Secured computer science stream in one of India's premium technology schools by being in top 0.4% of ~1.3 million applicants",
+            text: 'Secured highest CGPA in my discipline by being consistently good with academics and thus received Gold medal 🥇 ',
+            linkText: '',
+          },
+          {
+            text: 'here',
+            linkText: 'https://youtu.be/DVCxygL8xoQ?t=7310',
+          },
+          {
+            text: '. Received certificate for Academic Excellence in 2nd & 3rd year aswell, which can be seen ',
+            linkText: '',
+          },
+          {
+            text: 'here',
+            linkText:
+              'https://www.odrive.com/s/c364f346-962a-4c69-a887-2530ed96f0c5-623c5c1e',
+          },
+          fullStop,
+        ],
+      },
+      {
+        title: [{ text: 'BTP Appreciation award', linkText: '' }],
+
+        description: [
+          {
+            text: 'Received certificate of Merit in appreciation of the excellent work done towards the final year B. Tech project titled, "Tiger to RISC V Compiler". Certificate can be viewed ',
+            linkText: '',
+          },
+          {
+            text: 'here',
+            linkText:
+              'https://www.odrive.com/s/6db3947b-cb62-4a8f-90cd-056118248ec5-623c5499',
+          },
+          fullStop,
+        ],
+      },
+      {
+        title: [
+          {
+            text: 'Internship at VMware (formerly Avi Networks)',
             linkText: '',
           },
         ],
+        description: [
+          {
+            text: 'Upgraded logging packages to Go language (5x speedup) and did automation using Terraform and Ansible. Certificate can be viewed ',
+            linkText: '',
+          },
+          {
+            text: 'here',
+            linkText:
+              'https://www.odrive.com/s/04a698a0-911e-4c0f-b92d-89623f393141-623c54d4',
+          },
+          fullStop,
+        ],
       },
+      {
+        title: [
+          {
+            text: 'Selected by the Ministry of Youth Affairs & Sports, Govt. of India among 200 students to represent India as a youth delegate in the "Indian Youth Delegation to China - 2018"',
+            linkText: '',
+          },
+        ],
+        description: [
+          { text: 'My report for the event ', linkText: '' },
+          { text: 'here', linkText: '' },
+          { text: ' and certificate ', linkText: '' },
+          {
+            text: 'here',
+            linkText:
+              'https://www.odrive.com/s/18d109df-fe3f-418f-ba0d-71d3dadc1cd7-623c6091',
+          },
+          fullStop,
+        ],
+      },
+
       {
         title: [
           {
@@ -160,10 +233,7 @@ const achievements = [
             text: 'here',
             linkText: 'https://www.codechef.com/rankings/ACMIND18',
           },
-          {
-            text: '.',
-            linkText: '',
-          },
+          fullStop,
         ],
       },
       {
@@ -180,57 +250,25 @@ const achievements = [
             linkText:
               'https://www.hackerearth.com/challenges/competitive/JNJ-3addresscode-2019/leaderboard/page/2/',
           },
-          { text: '.', linkText: '' },
+          { text: ' and certificate ', linkText: '' },
+          {
+            text: 'here',
+            linkText:
+              'https://www.odrive.com/s/39993368-f029-4d75-ae26-f90263125596-623c5f9b',
+          },
+          fullStop,
         ],
       },
       {
         title: [
           {
-            text: 'Selected by the Ministry of Youth Affairs & Sports, Govt. of India among 200 students to represent India as a youth delegate in the "Indian Youth Delegation to China - 2018"',
-            linkText: '',
-          },
-        ],
-        description: [{ text: '', linkText: '' }],
-      },
-      {
-        title: [
-          {
-            text: 'Internship at VMware (formerly Avi Networks)',
+            text: 'Started B. Tech in Computer Science from IIT Palakkad',
             linkText: '',
           },
         ],
         description: [
           {
-            text: 'I upgraded logging packages to Go language (5x speedup) and did automation using Terraform and Ansible',
-            linkText: '',
-          },
-        ],
-      },
-      {
-        title: [
-          { text: 'Topped my stream & became gold medalist 🥇', linkText: '' },
-        ],
-        description: [
-          {
-            text: 'By being consistently good with academics, I secured highest CGPA in my branch and thus received Gold medal 🥇. ',
-            linkText: '',
-          },
-          {
-            text: 'Here',
-            linkText: 'https://youtu.be/DVCxygL8xoQ?t=7310',
-          },
-          {
-            text: ' I can be seen being awarded.',
-            linkText: '',
-          },
-        ],
-      },
-      {
-        title: [{ text: 'BTP Appreciation award & BTP details', linkText: '' }],
-
-        description: [
-          {
-            text: 'Received certificate of Merit in appreciation of the excellent work done towards the final year B. Tech project titled, "Tiger to RISC V Compiler".',
+            text: "Secured computer science stream in one of India's premium technology schools by being in top 0.4% of ~1.3 million applicants.",
             linkText: '',
           },
         ],
@@ -321,7 +359,9 @@ export default function Timeline() {
                             </Box>
                           ) : (
                             <NextLink href={linkText} passHref key={index}>
-                              <Link isExternal={true}>{text}</Link>
+                              <Link isExternal={true} color="blue">
+                                {text}
+                              </Link>
                             </NextLink>
                           )
                         )}
@@ -334,7 +374,9 @@ export default function Timeline() {
                             </Box>
                           ) : (
                             <NextLink href={linkText} passHref key={index}>
-                              <Link isExternal={true}>{text}</Link>
+                              <Link isExternal={true} color="blue">
+                                {text}
+                              </Link>
                             </NextLink>
                           )
                         )}

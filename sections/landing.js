@@ -104,29 +104,35 @@ function Hero() {
         initial="hidden"
         animate="visible"
       >
-        <HStack backdropFilter={'blur(10px)'} borderRadius="2xl" p="10px">
+        <HStack backdropFilter={'blur(15px)'} borderRadius="2xl" p="10px">
           <MotionText
             fontWeight={headingFW}
             fontSize={headingFS}
-            position={'relative'}
-            _after={{
-              content: "''",
-              width: 'full',
-              height: '30%',
-              position: 'absolute',
-              bottom: 1,
-              left: 0,
-              bg: 'red.200',
-              zIndex: -1,
+            // position={'relative'}
+            // _after={{
+            //   content: "''",
+            //   width: 'full',
+            //   height: '30%',
+            //   position: 'absolute',
+            //   bottom: 1,
+            //   left: 0,
+            //   bg: 'red.200',
+            //   zIndex: -1,
+            // }}
+            animate={{ rotate: [0, 14, -8, 14, -4, 10, 0] }}
+            transition={{
+              repeat: 'Infinity',
+              repeatDelay: '4',
             }}
           >
-            {'Swasti!'.split('').map((char, index) => {
+            👋
+            {/* {'👋!'.split('').map((char, index) => {
               return (
                 <MotionBox as={'span'} key={index} variants={letter}>
                   {char}
                 </MotionBox>
               );
-            })}
+            })} */}
           </MotionText>
           <MotionText fontWeight={headingFW} fontSize={headingFS}>
             {'Meet'.split('').map((char, index) => {
@@ -148,7 +154,7 @@ function Hero() {
               position: 'absolute',
               bottom: 1,
               left: 0,
-              bg: 'blue.200',
+              bg: 'red.200',
               zIndex: -1,
             }}
           >
@@ -163,7 +169,21 @@ function Hero() {
           <MotionText fontWeight={textFW} fontSize={textFS} variants={letter}>
             Full stack
           </MotionText>
-          <Text fontWeight={textFW} fontSize={textFS}>
+          <Text
+            fontWeight={textFW}
+            fontSize={textFS}
+            position={'relative'}
+            _after={{
+              content: "''",
+              width: 'full',
+              height: '30%',
+              position: 'absolute',
+              bottom: 1,
+              left: 0,
+              bg: 'blue.200',
+              zIndex: -1,
+            }}
+          >
             {'web3'.split('').map((char, index) => {
               return (
                 <MotionBox as={'span'} key={index} variants={letter}>

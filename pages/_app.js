@@ -1,8 +1,19 @@
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, extendTheme } from '@chakra-ui/react';
+
+// Following is to achieve smooth scroll for fragments, ref: https://github.com/vercel/next.js/issues/5136#issuecomment-633990141
+const theme = extendTheme({
+  styles: {
+    global: {
+      html: {
+        scrollBehavior: 'smooth',
+      },
+    },
+  },
+});
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <Component {...pageProps} />
     </ChakraProvider>
   );
