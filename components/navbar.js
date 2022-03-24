@@ -2,7 +2,7 @@
 // to convert svg to react component: https://react-svgr.com/playground/
 // since there is only one page, 'anchor links' are deployed.
 
-import Logo from './logo';
+import LotusLogo from './lotusLogo';
 
 import { useState } from 'react';
 
@@ -141,8 +141,10 @@ export default function Navbar() {
         <Link
           onMouseEnter={() => setLogoHover(true)}
           onMouseLeave={() => setLogoHover(false)}
+          paddingTop={'5px'}
         >
-          <Logo logoHover={logoHover} />
+          <LotusLogo logoHover={logoHover} />
+          {/* <Logo logoHover={logoHover} /> */}
         </Link>
       </NextLink>
       <Flex display={{ base: 'none', sm: 'flex' }}>
