@@ -23,9 +23,25 @@ const achievements = [
     children: [
       {
         title: [
-          { text: '(Currently) Working on ', linkText: '' },
-          { text: 'prakash.love', linkText: 'https://prakash.love' },
+          { text: '(May - mid June) Created ', linkText: '' },
+          {
+            text: 'Tutorial on Solidity, Ethereum Virtual Machine (EVM), Hardhat, ethers.js, Damn Vulnerable Defi',
+            linkText: 'https://youtu.be/lwxEYeoMsVU',
+          },
           fullStop,
+        ],
+        description: [
+          {
+            text: 'Beginner friendly, eyes friendly (4k) and time friendly (concise) course.',
+            linkText: '',
+          },
+        ],
+      },
+      {
+        title: [
+          { text: '(Mar) Created ', linkText: '' },
+          { text: 'prakash.love', linkText: 'https://prakash.love' },
+          { text: ' [Not yet complete as waiting for content]', linkText: '' },
         ],
         description: [
           {

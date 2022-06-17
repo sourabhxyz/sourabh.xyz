@@ -102,7 +102,7 @@ const NAV_ITEMS = [
         icon: FaYoutube,
         iconColor: '#FF0000',
         subLabel: 'For Osome tutorials!',
-        href: 'https://www.youtube.com/channel/UCbAawWkpYwrxqpaFTIpNDtA',
+        href: 'https://www.youtube.com/channel/UClsz9fNAI9ncCWEre2VlnVA',
       },
     ],
   },
