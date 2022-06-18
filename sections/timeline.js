@@ -98,7 +98,7 @@ const achievements = [
         ],
         description: [
           {
-            text: 'As good product requires good art. Also being good with these tools allows one to express themself better. Created all the art of this site myself.',
+            text: 'As good product requires good art. Also being good with these tools allows one to express themselves better. Created all the art of this site myself.',
             linkText: '',
           },
           // {
@@ -140,7 +140,7 @@ const achievements = [
         ],
         description: [
           {
-            text: "By luck as I was selling my personal system, I came to realize about GPU mining and started amassing as many GPU's as I could. First I used to cash out my mined Ethereum & other crypto assets but then after slowly realising the potential of this technology, I started investing in crypto assets. Earlier I was of the opinion to gather as much Ethereum as I can but being in this field, I came to explore various DeFi protocols, which showed me how nascent is this space, their potential & thus I got inclined towards being developer here. And by the end of 2021, I made my decision to enter this field with full force.",
+            text: "Making a living from crypto, I was naturally inclined to invest in crypto and that's when I came to explore various DeFi protocols, which showed me how nascent is this space. Thus, by the end of 2021, I made my decision to become full time developer in this field.",
             linkText: '',
           },
         ],
@@ -159,7 +159,7 @@ const achievements = [
         ],
         description: [
           {
-            text: 'Secured highest CGPA in my discipline by being consistently good with academics and thus received Gold medal 🥇 ',
+            text: 'Secured highest CGPA in my discipline by being consistently good with academics and thus received Gold medal 🥇 [See ',
             linkText: '',
           },
           {
@@ -167,7 +167,7 @@ const achievements = [
             linkText: 'https://youtu.be/DVCxygL8xoQ?t=7310',
           },
           {
-            text: '. Received certificate for Academic Excellence in 2nd & 3rd year aswell, which can be seen ',
+            text: ']. Received certificate for Academic Excellence in 2nd & 3rd year aswell, which can be seen ',
             linkText: '',
           },
           {
