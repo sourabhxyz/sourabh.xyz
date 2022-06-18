@@ -26,7 +26,8 @@ const achievements = [
           { text: '(May - mid June) Created ', linkText: '' },
           {
             text: 'Tutorial on Solidity, Ethereum Virtual Machine (EVM), Hardhat, ethers.js, Damn Vulnerable Defi',
-            linkText: 'https://youtu.be/lwxEYeoMsVU',
+            linkText:
+              'https://youtube.com/playlist?list=PLQENoiVb8xoP3Wd3onKrGtX2EO1JtFUG9',
           },
           fullStop,
         ],
