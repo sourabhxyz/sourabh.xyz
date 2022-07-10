@@ -23,6 +23,30 @@ const achievements = [
     children: [
       {
         title: [
+          { text: '(Early July) Created ', linkText: '' },
+          {
+            text: 'Tutorial on Zero Knowledge Proofs (specifically zkSNARKs) in collaboration with cryptonaukri.com',
+            linkText: '',
+          },
+        ],
+        description: [
+          {
+            text: 'First part',
+            linkText: 'https://www.youtube.com/watch?v=1tw2wB5i9z8',
+          },
+          {
+            text: ' and ',
+            linkText: '',
+          },
+          {
+            text: 'Second part',
+            linkText: 'https://www.youtube.com/watch?v=wYdzIwqZBQ0',
+          },
+          fullStop,
+        ],
+      },
+      {
+        title: [
           { text: '(May - mid June) Created ', linkText: '' },
           {
             text: 'Tutorial on Solidity, Ethereum Virtual Machine (EVM), Hardhat, ethers.js, Damn Vulnerable Defi',
