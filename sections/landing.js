@@ -26,7 +26,7 @@ const sentence = {
   hidden: {},
   visible: {
     transition: {
-      dealy: 0.5,
+      delay: 0.5,
       staggerChildren: 0.09,
     },
   },
