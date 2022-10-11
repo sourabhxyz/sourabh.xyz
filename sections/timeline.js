@@ -23,6 +23,17 @@ const achievements = [
     children: [
       {
         title: [
+          { text: '(Oct) Wrote a tutorial on ', linkText: '' },
+          {
+            text: 'Segment trees (lazy & persistent) in Haskell',
+            linkText: 'https://www.reddit.com/r/haskell/comments/xzlhs4/segment_tress_lazy_persistent_in_haskell/',
+          },
+        ],
+        description: [
+        ],
+      },
+      {
+        title: [
           { text: '(Early July) Created ', linkText: '' },
           {
             text: 'Tutorial on Zero Knowledge Proofs (specifically zkSNARKs) in collaboration with cryptonaukri.com',

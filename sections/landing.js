@@ -64,6 +64,7 @@ function Hero() {
   const headingFS = { base: 'xl', sm: '2xl', lg: '3xl' };
   const textFW = '600';
   const textFS = { base: 'sm', sm: 'md', lg: 'lg' };
+  const subTextFS = { base: 'xs', sm: 'sm', lg: 'sm' };
   return (
     <Box
       // w={'auto'} // this is an issue because 1. default is already auto I believe, 2. there is no width of container set.
@@ -165,7 +166,7 @@ function Hero() {
             ))}
           </MotionText>
         </HStack>
-        <HStack backdropFilter={'blur(5px)'} borderRadius="xl" p="10px">
+        <HStack backdropFilter={'blur(5px)'} borderRadius="xl" pt="8px">
           <MotionText fontWeight={textFW} fontSize={textFS} variants={letter}>
             Full stack
           </MotionText>
@@ -201,6 +202,14 @@ function Hero() {
               );
             })}
           </Text>
+        </HStack>
+        <HStack backdropFilter={'blur(5px)'} borderRadius="xl" pt="6px">
+          <MotionText fontWeight={textFW} fontSize={subTextFS} variants={letter} color={"purple"}>
+            λ
+          </MotionText>
+          <MotionText fontWeight={textFW} fontSize={subTextFS} variants={letter}>
+            Haskell, Cardano, ZKP & Solidity
+          </MotionText>
         </HStack>
       </MotionFlex>
     </Box>
