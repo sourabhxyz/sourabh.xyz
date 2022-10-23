@@ -5,7 +5,8 @@ Few things to follow:
 */
 
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
-
+import Head from 'next/head'
+//
 // Following is to achieve smooth scroll for fragments, reference: https://github.com/vercel/next.js/issues/5136#issuecomment-633990141
 const theme = extendTheme({
   styles: {
@@ -20,6 +21,11 @@ const theme = extendTheme({
 function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider theme={theme}>
+      <Head>
+        <title>sourabh.xyz</title>
+        <meta name="description" content="About Sourabh" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Component {...pageProps} />
     </ChakraProvider>
   );

@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import LaserLights from '../components/laserLights';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
@@ -15,13 +14,6 @@ export default function Root() {
   });
 
   return (
-    <div>
-      <Head>
-        <title>sourabh.xyz</title>
-        <meta name="description" content="About Sourabh" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      {LaserLights()}
-    </div>
+    <LaserLights/>
   );
 }
