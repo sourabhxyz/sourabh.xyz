@@ -52,11 +52,11 @@ const activeStyle = {
 const NAV_ITEMS = [
   {
     label: 'Home',
-    href: '',
+    href: '/home',
   },
   {
     label: 'Timeline',
-    href: '#timeline',
+    href: '/home#timeline',
   },
   {
     label: 'Contact',

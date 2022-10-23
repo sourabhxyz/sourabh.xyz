@@ -15,7 +15,6 @@ import { ChevronDownIcon } from '@chakra-ui/icons';
 import HeroBg from '../components/heroBg';
 import BioWorksBg from '../components/bioWorksBg';
 import NextLink from 'next/link';
-import Link from 'next/link';
 
 const MotionContainer = motion(Container);
 const MotionIcon = motion(Icon);
