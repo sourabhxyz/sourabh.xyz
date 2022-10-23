@@ -14,6 +14,8 @@ import Timeline from '../components/timeline';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import HeroBg from '../components/heroBg';
 import BioWorksBg from '../components/bioWorksBg';
+import NextLink from 'next/link';
+import Link from 'next/link';
 
 const MotionContainer = motion(Container);
 const MotionIcon = motion(Icon);
@@ -43,10 +45,7 @@ const letter = {
 
 export default function Home() {
   return (
-    /* 
-    My initial animation of x moving from 100% to 0
-    is causing issues for mobile screens where width then becomes 50%. Discussion here https://stackoverflow.com/questions/68911663/framer-motion-animation-causes-website-to-expand & here https://github.com/framer/motion/issues/987. Instead of applying their fixes now, I have decided to see it once the site is complete. 
-    */
+    // My initial animation of x moving from 100% to 0 is causing issues for mobile screens where width then becomes 50%. Discussion here https://stackoverflow.com/questions/68911663/framer-motion-animation-causes-website-to-expand & here https://github.com/framer/motion/issues/987. Instead of applying their fixes now, I have decided to see it once the site is complete. 
     <MotionContainer
       maxW={containerSize}
       initial={{ opacity: 0 }}
@@ -74,26 +73,30 @@ function Hero() {
       <Box position={'absolute'} bottom={'0px'} left={'0px'} zIndex={'-1'}>
         <HeroBg />
       </Box>
-      <MotionIcon
-        as={ChevronDownIcon}
-        position={'absolute'}
-        bottom="20px"
-        left="50%"
-        boxSize={'2em'}
-        color="black"
-        animate={{
-          y: ['0px', '2px', '0px'],
-          opacity: [0.7, 1, 0.7],
-          scale: [1, 1.2, 1],
-        }}
-        transition={{
-          repeat: 'Infinity',
-          repeatType: 'reverse',
-          duration: '2',
-          repeatDelay: '3',
-          delay: '3',
-        }}
-      ></MotionIcon>
+      <NextLink href='#timeline'>
+        <MotionIcon
+          as={ChevronDownIcon}
+          position={'absolute'}
+          bottom="20px"
+          left="50%"
+          boxSize={'2em'}
+          color="black"
+          cursor="pointer"  // somehow cursor is not having pointer on hover, so need to explicitly mention.
+          animate={{
+            y: ['0px', '2px', '0px'],
+            opacity: [0.7, 1, 0.7],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            repeat: 'Infinity',
+            repeatType: 'reverse',
+            duration: '2',
+            repeatDelay: '3',
+            delay: '3',
+          }}
+        >
+        </MotionIcon>
+      </NextLink>
       {/* ref for motion text using framer: https://brad-carter.medium.com/how-to-animate-a-text-reveal-effect-in-react-with-framer-motion-ae8ddd296f0d */}
       <MotionFlex
         alignItems={'center'}
