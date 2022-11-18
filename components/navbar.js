@@ -134,7 +134,7 @@ export default function Navbar() {
       h={navHeight}
       px="4"
       align={'center'}
-      justify={{ base: 'space-between', sm: 'none' }}
+      justify={{ base: 'space-between', sm: 'none' }}  // while revising this code, I noticed that their is an issue here, that sm: 'none' thing most likely is doing nothing.
     >
       {/* Logo */}
       <NextLink href="/" passHref>

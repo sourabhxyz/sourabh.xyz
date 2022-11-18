@@ -129,13 +129,6 @@ function Hero() {
             }}
           >
             👋
-            {/* {'👋!'.split('').map((char, index) => {
-              return (
-                <MotionBox as={'span'} key={index} variants={letter}>
-                  {char}
-                </MotionBox>
-              );
-            })} */}
           </MotionText>
           <MotionText fontWeight={headingFW} fontSize={headingFS}>
             {'Meet'.split('').map((char, index) => {
@@ -167,50 +160,13 @@ function Hero() {
               </MotionBox>
             ))}
           </MotionText>
-        </HStack>
-        <HStack backdropFilter={'blur(5px)'} borderRadius="xl" pt="8px">
-          <MotionText fontWeight={textFW} fontSize={textFS} variants={letter}>
-            Full stack
-          </MotionText>
-          <Text
-            fontWeight={textFW}
-            fontSize={textFS}
-            position={'relative'}
-            _after={{
-              content: "''",
-              width: 'full',
-              height: '30%',
-              position: 'absolute',
-              bottom: 1,
-              left: 0,
-              bg: 'blue.200',
-              zIndex: -1,
-            }}
-          >
-            {'web3'.split('').map((char, index) => {
-              return (
-                <MotionBox as={'span'} key={index} variants={letter}>
-                  {char}
-                </MotionBox>
-              );
-            })}
-          </Text>
-          <Text fontWeight={textFW} fontSize={textFS}>
-            {'developer'.split('').map((char, index) => {
-              return (
-                <MotionBox as={'span'} key={index} variants={letter}>
-                  {char}
-                </MotionBox>
-              );
-            })}
-          </Text>
-        </HStack>
-        <HStack backdropFilter={'blur(5px)'} borderRadius="xl" pt="6px">
-          <MotionText fontWeight={textFW} fontSize={subTextFS} variants={letter} color={"purple"}>
+          <MotionText fontWeight={headingFW} fontSize={headingFS} variants={letter} color={"purple"}>
             λ
           </MotionText>
+        </HStack>
+        <HStack backdropFilter={'blur(5px)'} borderRadius="xl" pt="8px">
           <MotionText fontWeight={textFW} fontSize={subTextFS} variants={letter}>
-            Haskell, Cardano, ZKP & Solidity
+            Plutus, Typescript, Next.js (React), ZKP & Solidity
           </MotionText>
         </HStack>
       </MotionFlex>
@@ -232,6 +188,40 @@ function BioWorks() {
     {
       title: '2022',
       children: [
+        {
+          title: [
+            { text: '(Nov) Founded ', linkText: '' },
+            {
+              text: 'adaplays.xyz',
+              linkText: 'https://adaplays.xyz',
+            },
+          ],
+          description: [
+            {
+              text: 'A place to play staked games where moves are verified by blockchain. See ',
+              linkText: '',
+            },
+            {
+              text: 'github repository',
+              linkText: 'https://github.com/adaplays/adaplays.xyz',
+            },
+            {
+              text: " for more details.",
+              linkText: '',
+            },
+          ],
+          // \item 
+          // \item Having minimum stake amount to be $3$ Ada, cost for minimum UTxO is effectively hidden and not relevant. Increase in transaction cost (44 lovelace per byte) is minimal.
+          // \item Whole project is as such server-less, could be exported as a static site and run by end user locally with a sole limitation of giving a node provider such as \href{https://blockfrost.io}{blockfrost}. Design can handle up to $10^6$ UTxO's per game address.
+          // \item Parameterized script (parameterized by UTxO) is used to get unique currency symbol (NFT) per game. Minted with first move of game \& burned with last. Off-chain code is written to verify whether a found game indeed has an NFT by generating currency symbol with parameters found from datum (of course, check is performed to see whether the token in question is present in UTxO or not). Since finding pre-image of such a hash function is next to impossible (their is also less entropy here as script code \& token names are fixed), this is secure.
+          // \item Project is build with help of:
+          // \vspace{-2pt}\begin{itemize}
+          //   \resumeItem{\textbf{Next.js} (\textbf{React} framework) with \textbf{typescript} (\textcolor{red}{\sout{: any}}).}
+          //   \resumeItem{\textbf{NextAuth.js}: to manage user session securely and having it synced across multiple windows / tabs.}
+          //   \resumeItem{\textbf{Chakra UI}: for styling.}
+          //   \resumeItem{\textbf{Lucid}: To create off-chain code for transactions.}
+          // \end{itemize}
+        },
         {
           title: [
             { text: '(Oct) Wrote a tutorial on ', linkText: '' },
