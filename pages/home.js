@@ -166,7 +166,7 @@ function Hero() {
         </HStack>
         <HStack backdropFilter={'blur(5px)'} borderRadius="xl" pt="8px">
           <MotionText fontWeight={textFW} fontSize={subTextFS} variants={letter}>
-            Plutus, Typescript, Next.js (React), ZKP & Solidity
+            Haskell, Plutus, Typescript, Next.js (React) & Solidity
           </MotionText>
         </HStack>
       </MotionFlex>
