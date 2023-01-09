@@ -333,10 +333,10 @@ function BioWorks() {
             { text: '(Jan) Learned Photoshop & Illustrator 🎨', linkText: '' },
           ],
           description: [
-            {
-              text: 'As good product requires good art. Also being good with these tools allows one to express themselves better. Created all the art of this site myself.',
-              linkText: '',
-            },
+            // {
+            //   text: 'As good product requires good art. Also being good with these tools allows one to express themselves better. Created all the art of this site myself.',
+            //   linkText: '',
+            // },
             // {
             //   text: 'here',
             //   linkText:
@@ -375,10 +375,10 @@ function BioWorks() {
             },
           ],
           description: [
-            {
-              text: "Making a living from crypto, I was naturally inclined to invest in crypto and that's when I came to explore various DeFi protocols, which showed me how nascent is this space. Thus, by the end of 2021, I made my decision to become full time developer in this field.",
-              linkText: '',
-            },
+            // {
+            //   text: "Making a living from crypto, I was naturally inclined to invest in crypto and that's when I came to explore various DeFi protocols, which showed me how nascent is this space. Thus, by the end of 2021, I made my decision to become full time developer in this field.",
+            //   linkText: '',
+            // },
           ],
         },
       ],
