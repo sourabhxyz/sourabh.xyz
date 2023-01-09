@@ -274,19 +274,19 @@ function BioWorks() {
             },
           ],
         },
-        {
-          title: [
-            { text: '(Mar) Created ', linkText: '' },
-            { text: 'prakash.love', linkText: 'https://prakash.love' },
-            { text: ' [Not yet complete as waiting for content]', linkText: '' },
-          ],
-          description: [
-            {
-              text: 'One place website to get all available information of the personality I revere the most.',
-              linkText: '',
-            },
-          ],
-        },
+        // {
+        //   title: [
+        //     { text: '(Mar) Created ', linkText: '' },
+        //     { text: 'prakash.love', linkText: 'https://prakash.love' },
+        //     { text: ' [Not yet complete as waiting for content]', linkText: '' },
+        //   ],
+        //   description: [
+        //     {
+        //       text: 'One place website to get all available information of the personality I revere the most.',
+        //       linkText: '',
+        //     },
+        //   ],
+        // },
         {
           title: [
             { text: '(Feb - Mar) Created ', linkText: '' },
